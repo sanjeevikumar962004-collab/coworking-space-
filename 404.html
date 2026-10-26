@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Space Not Found | Stackly Coworking</title>
+    <meta name="description" content="The page or workspace corner you are looking for doesn't exist or has moved. Return to Stackly Salem home.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['DM Serif Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        terracotta: '#A44C32',
+                        'terracotta-hover': '#8F3F28',
+                        cream: '#FAF8F5',
+                        'cream-alt': '#F4EFE6',
+                        dark: '#19201E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .brand-logo-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            width: 18px;
+        }
+        .brand-logo-bars span {
+            height: 2px;
+            background-color: #A44C32;
+            border-radius: 1px;
+        }
+        .brand-logo-bars span:nth-child(1) { width: 100%; }
+        .brand-logo-bars span:nth-child(2) { width: 75%; }
+        .brand-logo-bars span:nth-child(3) { width: 100%; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-cream antialiased min-h-screen flex flex-col justify-between p-4 sm:p-8">
+
+    <!-- Top Simple Header -->
+    <header class="max-w-4xl w-full mx-auto flex items-center justify-between py-4">
+        <a href="index.html" class="flex items-center gap-2.5 group" aria-label="Stackly Coworking Home">
+            <img src="images/stackly logo.webp" alt="Stackly" class="h-7 w-auto object-contain filter brightness-0">
+            <span class="text-xs uppercase tracking-widest text-terracotta font-bold">Salem Hub</span>
+        </a>
+
+        <a href="services.html" class="text-xs font-semibold text-gray-600 hover:text-terracotta uppercase tracking-wider">
+            Our Workspaces ↗
+        </a>
+    </header>
+
+    <!-- Center Error Box -->
+    <main class="max-w-lg w-full mx-auto text-center bg-white p-8 sm:p-12 rounded-2xl border border-[#EBE5DC] shadow-sm relative overflow-hidden my-auto">
+        <div class="space-y-4">
+            <!-- 404 Serif Number -->
+            <div class="inline-flex items-center justify-center">
+                <span class="font-serif text-7xl sm:text-8xl text-dark select-none">
+                    4<span class="text-terracotta inline-block">0</span>4
+                </span>
+            </div>
+
+            <span class="text-xs font-bold uppercase tracking-widest text-terracotta block">
+                Room or Corner Not Found
+            </span>
+
+            <h1 class="font-serif text-2xl sm:text-3xl text-dark">
+                This space is unoccupied.
+            </h1>
+
+            <p class="text-gray-500 text-sm leading-relaxed max-w-sm mx-auto">
+                The desk, room, or link you followed doesn't exist or has moved. Let's get you back into the rhythm.
+            </p>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button onclick="history.back()" class="w-full sm:w-auto px-6 py-3 bg-white border border-[#E2DBD0] text-dark rounded-md text-xs font-bold uppercase tracking-wider hover:border-terracotta hover:bg-cream transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-arrow-left text-xs"></i> Go Back
+                </button>
+                <a href="index.html" class="w-full sm:w-auto px-6 py-3 bg-terracotta text-white rounded-md text-xs font-bold uppercase tracking-wider hover:bg-terracotta-hover transition flex items-center justify-center gap-2 shadow-sm">
+                    Back to Home <span class="arrow">↗</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Simple Footer -->
+    <footer class="py-4 text-center text-xs text-gray-500">
+        &copy; 2024 Stackly &middot; Salem, Tamil Nadu &middot; 
+        <a href="404.html" class="hover:underline text-gray-700">Need host assistance?</a>
+    </footer>
+
+</body>
+</html>

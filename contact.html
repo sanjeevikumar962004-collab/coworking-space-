@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Visit — Stackly Salem Coworking</title>
+  <meta name="description" content="Schedule a visit or get in touch with Stackly Salem. Find your workspace, meet your on-site host, and experience our community in person.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <!-- ========================================================================
+       SITE HEADER / NAVIGATION
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container-wide header-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Stackly Coworking Home">
+        <img src="images/stackly logo.webp" alt="Stackly" class="stackly-brand-img dark-text">
+      </a>
+
+            <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+      </nav>
+
+      <!-- Desktop Action Links -->
+      <div class="header-actions">
+        <a href="login.html" class="login-link">Member login</a>
+        <a href="contact.html#book-tour" class="btn btn-terracotta open-tour-btn">
+          Book a tour <span class="arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button type="button" class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       CONTACT & VISIT MAIN SECTION
+       ======================================================================== -->
+  <section class="hero-contact">
+    <div class="container contact-layout-grid">
+      <!-- Left: Form Card with Tabs -->
+      <div class="contact-form-card">
+        <!-- Tabs -->
+        <div class="contact-tabs-nav" role="tablist">
+          <button type="button" class="contact-tab-btn active" id="tabBookTour" role="tab" aria-selected="true">
+            Book a tour
+          </button>
+          <button type="button" class="contact-tab-btn" id="tabGeneralEnquiry" role="tab" aria-selected="false">
+            General enquiry
+          </button>
+        </div>
+
+        <h1 class="heading-serif contact-form-title" id="formHeaderTitle">
+          A better day starts with a visit.
+        </h1>
+        <p class="contact-form-sub" id="formHeaderSub">
+          Tell us a little about yourself. Fields marked * are required.
+        </p>
+
+        <!-- Main Interactive Form -->
+        <form id="contactPageForm" data-validate="true" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName" class="form-label">Full name *</label>
+              <input type="text" id="contactName" class="form-input" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">Work email *</label>
+              <input type="email" id="contactEmail" class="form-input" placeholder="you@company.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactCompany" class="form-label">Company / organisation</label>
+              <input type="text" id="contactCompany" class="form-input" placeholder="Where you work (optional)">
+            </div>
+            <div class="form-group">
+              <label for="contactPhone" class="form-label">Phone number</label>
+              <input type="tel" id="contactPhone" class="form-input" placeholder="Optional, for visit coordination">
+            </div>
+          </div>
+
+          <div class="form-row" id="tourFieldsRow1">
+            <div class="form-group">
+              <label for="contactWorkspace" class="form-label">Workspace interest *</label>
+              <select id="contactWorkspace" class="form-select">
+                <option value="Dedicated desk" selected>Dedicated desk</option>
+                <option value="Flexible desk">Flexible desk</option>
+                <option value="Private team office">Private office (4–12 people)</option>
+                <option value="Meeting room">Meeting room</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contactTeamSize" class="form-label">Team size *</label>
+              <select id="contactTeamSize" class="form-select">
+                <option value="1-2 people" selected>1–2 people</option>
+                <option value="3-5 people">3–5 people</option>
+                <option value="6-12 people">6–12 people</option>
+                <option value="12+ people">12+ people</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row" id="tourFieldsRow2">
+            <div class="form-group">
+              <label for="contactDate" class="form-label">Preferred visit date</label>
+              <input type="date" id="contactDate" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="contactTimeWindow" class="form-label">Preferred time</label>
+              <select id="contactTimeWindow" class="form-select">
+                <option value="" disabled selected>Choose a time window</option>
+                <option value="Morning">Morning (9:30 AM – 12:30 PM)</option>
+                <option value="Afternoon">Afternoon (1:00 PM – 4:00 PM)</option>
+                <option value="Evening">Evening (4:00 PM – 6:30 PM)</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="form-footnote-text" id="tourPreferenceNote" style="margin-bottom: 1.25rem;">
+            Your preferred time is a request. Your host will confirm availability by email.
+          </p>
+
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label for="contactNotes" class="form-label">Anything you'd like us to know?</label>
+            <textarea id="contactNotes" class="form-textarea" placeholder="Tell us about your workday, team or accessibility needs..."></textarea>
+          </div>
+
+          <label class="form-checkbox-label">
+            <input type="checkbox" required checked>
+            <span>I agree to be contacted about my enquiry and understand that my details will be used to coordinate my visit. See our <a href="#privacy" style="text-decoration: underline;">privacy policy</a>.</span>
+          </label>
+
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn-terracotta" id="contactSubmitBtn">
+              Request my tour <span class="arrow">↗</span>
+            </button>
+            <span class="form-footnote-text">A conversation, not a commitment.</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right: Location & Visit Information Card -->
+      <div class="contact-info-card">
+        <!-- Top Image -->
+        <div class="contact-image-wrap">
+          <img 
+            src="images/quiet-lounge-chair.webp" 
+            alt="Warm sunlit archway lounge with armchair and coffee table at Stackly Salem"
+            loading="eager"
+          >
+        </div>
+
+        <div class="contact-details-box">
+          <span class="contact-loc-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Find your place in Salem
+          </span>
+          <h2 class="heading-serif contact-loc-title">Salem, Tamil Nadu</h2>
+          <p class="contact-loc-desc">
+            Your next workspace, closer to your everyday. Tour the desks, step into the meeting rooms, and find the setting that suits you.
+          </p>
+
+          <div class="contact-bullets-list">
+            <!-- Bullet 1 -->
+            <div class="contact-bullet-item">
+              <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <div class="bullet-text">
+                <h4>Visits by appointment</h4>
+                <p>Please request a tour before travelling so a host can give you their full attention.</p>
+              </div>
+            </div>
+
+            <!-- Bullet 2 -->
+            <div class="contact-bullet-item">
+              <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              <div class="bullet-text">
+                <h4>Directions, made simple</h4>
+                <p>Walk directions, arrival details and any parking guidance are shared with your confirmation.</p>
+              </div>
+            </div>
+
+            <!-- Bullet 3 -->
+            <div class="contact-bullet-item">
+              <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <div class="bullet-text">
+                <h4>A visit that works for you</h4>
+                <p>Tell us about any accessibility requirements or preferences in the form so we can plan with you.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       STATEMENT SECTION: LET'S FIND YOUR KIND OF WORKSPACE.
+       ======================================================================== -->
+  <section class="section-statement" style="padding: 4.5rem 0;">
+    <div class="container statement-grid">
+      <div>
+        <span class="eyebrow">Come say hello · Salem</span>
+        <h2 class="heading-serif statement-heading">
+          Let's find your<br>kind of workspace.
+        </h2>
+      </div>
+      <div class="statement-text-col">
+        <p class="statement-p">
+          See the space, meet your host, and imagine your workday here. No pressure. Just a good place to start.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       THREE-STEP PROCESS SECTION: A WARM WELCOME, IN THREE STEPS
+       ======================================================================== -->
+  <section class="section-contact-steps">
+    <div class="container">
+      <span class="eyebrow">A warm welcome, in three steps</span>
+      <h2 class="heading-serif statement-heading">We'll take it from here.</h2>
+
+      <div class="steps-grid">
+        <!-- 01 -->
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h3>Tell us what you need</h3>
+          <p>Share your workspace preferences and a convenient time to visit.</p>
+        </div>
+
+        <!-- 02 -->
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h3>Meet your host</h3>
+          <p>We'll confirm your tour and share everything you need for a smooth arrival.</p>
+        </div>
+
+        <!-- 03 -->
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h3>Find your fit</h3>
+          <p>Explore the space, ask your questions, and take your next step when you're ready.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MEMBER CALLOUT BOX: ALREADY PART OF STACKLY?
+       ======================================================================== -->
+  <section class="section-member-callout">
+    <div class="container">
+      <div class="member-callout-box">
+        <div class="member-callout-text">
+          <h3>Already part of Stackly?</h3>
+          <p>Manage bookings, view invoices, or reach your workspace host from your member dashboard.</p>
+        </div>
+        <div>
+          <button type="button" class="btn btn-outline open-login-btn">
+            Go to member login <span class="arrow">↗</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SITE FOOTER (DARK)
+       ======================================================================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="footer-logo" aria-label="Stackly Coworking Home">
+            <img src="images/stackly logo.webp" alt="Stackly" class="stackly-brand-img">
+          </a>
+          <p class="footer-mission-text">
+            Thoughtful spaces, meaningful connections, a little more possibility in every workday.
+          </p>
+          <div class="footer-location-pin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Salem, Tamil Nadu</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Explore -->
+        <div>
+          <h4 class="footer-col-title">Explore</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html" class="footer-link">Home</a></li>
+            <li><a href="404.html" class="footer-link">About Stackly</a></li>
+            <li><a href="404.html" class="footer-link">Our workspaces</a></li>
+            <li><a href="404.html" class="footer-link">Blog &amp; Articles</a></li>
+            <li><a href="404.html" class="footer-link open-tour-btn">Book a tour</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Work your way -->
+        <div>
+          <h4 class="footer-col-title">Work your way</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html" class="footer-link">Flexible desks</a></li>
+            <li><a href="404.html" class="footer-link">Dedicated desks</a></li>
+            <li><a href="404.html" class="footer-link">Private offices</a></li>
+            <li><a href="404.html" class="footer-link">Meeting rooms</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Stay connected -->
+        <div>
+          <h4 class="footer-col-title">Stay connected</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html" class="footer-link open-login-btn">Member login</a></li>
+            <li><a href="404.html" class="footer-link">Contact &amp; visits</a></li>
+            <li><a href="404.html" class="footer-link">Community</a></li>
+            <li><a href="404.html" class="footer-link">Member support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-row">
+        <span>© 2024 Stackly · Coworking Space in Salem</span>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy policy</a>
+          <span>·</span>
+          <a href="404.html">Terms of use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL: MEMBER LOGIN
+       ======================================================================== -->
+  <div class="modal-backdrop" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal-dialog" style="max-width: 440px;">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <span class="modal-eyebrow">Stackly Portal</span>
+      <h3 class="modal-title" id="loginModalTitle">Member Login</h3>
+      <p class="modal-subtitle">Access your Wi-Fi credentials, book meeting rooms, and manage billing.</p>
+
+      <form class="modal-form" id="memberLoginForm" data-validate="true" novalidate>
+        <div class="form-group">
+          <label for="loginEmail" class="form-label">Email</label>
+          <input type="email" id="loginEmail" name="email" class="form-input" placeholder="member@stackly.in" required>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword" class="form-label">Password</label>
+          <input type="password" id="loginPassword" name="password" class="form-input" placeholder="••••••••" minlength="6" required>
+        </div>
+
+        <button type="submit" class="btn btn-terracotta" style="width: 100%; margin-top: 0.5rem;">
+          Sign In <span class="arrow">↗</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MOBILE NAVIGATION DRAWER
+       ======================================================================== -->
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Coworking Home">
+        <img src="images/stackly logo.webp" alt="Stackly" class="stackly-brand-img dark-text">
+      </a>
+      <button type="button" class="modal-close-btn" id="closeMobileMenu" aria-label="Close menu">&times;</button>
+    </div>
+
+          <nav class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="contact.html" class="mobile-nav-link active">Contact</a>
+        <a href="blog.html" class="mobile-nav-link">Blog</a>
+        <a href="login.html" class="mobile-nav-link">Member login</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="contact.html#book-tour" class="btn btn-terracotta w-full open-tour-btn">
+          Book a tour <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       TOAST NOTIFICATION
+       ======================================================================== -->
+  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+    <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span id="toastMsg">Tour request sent! We look forward to meeting you.</span>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="validation.js"></script>
+</body>
+</html>

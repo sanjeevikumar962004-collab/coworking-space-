@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services & Workspaces — Stackly Salem Coworking</title>
+  <meta name="description" content="Explore Stackly workspaces: Flexible desks, dedicated desks, private team offices, and tech-enabled meeting rooms in Salem, Tamil Nadu.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <!-- ========================================================================
+       SITE HEADER / NAVIGATION
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container-wide header-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Stackly Coworking Home">
+        <img src="images/stackly logo.webp" alt="Stackly" class="stackly-brand-img dark-text">
+      </a>
+
+            <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+      </nav>
+
+      <!-- Desktop Action Links -->
+      <div class="header-actions">
+        <a href="login.html" class="login-link">Member login</a>
+        <a href="contact.html#book-tour" class="btn btn-terracotta open-tour-btn">
+          Book a tour <span class="arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button type="button" class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       SERVICES HERO SECTION
+       ======================================================================== -->
+  <section class="hero-services">
+    <div class="container hero-grid">
+      <!-- Left Hero Text Content -->
+      <div class="hero-content">
+        <span class="eyebrow">Workspaces &amp; Memberships · Salem</span>
+        <h1 class="heading-serif hero-title">
+          Find your space.<br>
+          Set your pace.
+        </h1>
+        <p class="hero-subtitle">
+          From drop-in days to private team suites. Thoughtfully designed spaces that work around you.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#workspaces-grid" class="btn btn-terracotta">
+            Find my workspace <span class="arrow">↗</span>
+          </a>
+          <a href="#compare" class="btn-ghost-link">
+            Compare plans <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Hero Media -->
+      <div class="hero-media-wrap">
+        <div class="hero-image-card">
+          <img 
+            src="images/workspace-hero.webp" 
+            alt="Warm architectural sunlit coworking suites at Stackly Salem"
+            loading="eager"
+            width="600"
+            height="450"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TICKER / 4 KEY ATTRIBUTES BAR
+       ======================================================================== -->
+  <section class="features-ticker-bar" aria-label="Workspace categories">
+    <div class="container ticker-grid">
+      <div class="ticker-item">
+        <span class="ticker-num">01</span>
+        <span class="ticker-text">Flexible desks</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-num">02</span>
+        <span class="ticker-text">Dedicated desks</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-num">03</span>
+        <span class="ticker-text">Private offices</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-num">04</span>
+        <span class="ticker-text">Meeting rooms</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       2X2 WORKSPACES GRID SECTION
+       ======================================================================== -->
+  <section class="section-workspaces" id="workspaces-grid">
+    <div class="container">
+      <div class="services-2x2-grid">
+        <!-- 1. Flexible Desks -->
+        <div class="workspace-card">
+          <div class="workspace-img-wrap">
+            <img 
+              src="images/sunlit-hot-desk.webp" 
+              alt="Bright sunlit flexible open desk workspace with warm wood tables"
+              loading="lazy"
+            >
+          </div>
+          <span class="workspace-tag">For your everyday flow</span>
+          <h3 class="workspace-title">
+            Flexible desks <span class="arrow">↗</span>
+          </h3>
+          <p class="workspace-desc">
+            Choose a fresh desk whenever you drop in. A change of scenery for deep focus or casual collaboration.
+          </p>
+          <div class="workspace-subdetail">
+            Day access or flexible monthly passes
+          </div>
+          <div class="workspace-card-footer">
+            <span class="workspace-price">From ₹4,500 / month</span>
+            <button type="button" class="link-inline-arrow open-tour-btn" style="background:none;border:none;cursor:pointer;padding:0;">
+              Explore <span class="arrow">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Dedicated Desks -->
+        <div class="workspace-card">
+          <div class="workspace-img-wrap">
+            <img 
+              src="images/standing-desk.webp" 
+              alt="Ergonomic dedicated desk workstation with desktop display and natural lighting"
+              loading="lazy"
+            >
+          </div>
+          <span class="workspace-tag">A place to call yours</span>
+          <h3 class="workspace-title">
+            Dedicated desks <span class="arrow">↗</span>
+          </h3>
+          <p class="workspace-desc">
+            Your own desk, set up just the way you like it. A permanent spot in a focus-friendly shared room.
+          </p>
+          <div class="workspace-subdetail">
+            Lockable storage · 24/7 access option
+          </div>
+          <div class="workspace-card-footer">
+            <span class="workspace-price">₹7,500 / month</span>
+            <button type="button" class="link-inline-arrow open-tour-btn" style="background:none;border:none;cursor:pointer;padding:0;">
+              Explore <span class="arrow">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Private Offices -->
+        <div class="workspace-card">
+          <div class="workspace-img-wrap">
+            <img 
+              src="images/meeting-room.webp" 
+              alt="Modern glass private office suite for teams"
+              loading="lazy"
+            >
+          </div>
+          <span class="workspace-tag">For teams of 4–12</span>
+          <h3 class="workspace-title">
+            Private offices <span class="arrow">↗</span>
+          </h3>
+          <p class="workspace-desc">
+            Enclosed office suites tailored for your growing company, with private access and full Stackly amenities.
+          </p>
+          <div class="workspace-subdetail">
+            Custom setup · 24/7 access · Lockable space
+          </div>
+          <div class="workspace-card-footer">
+            <span class="workspace-price">From ₹24,000 / month</span>
+            <button type="button" class="link-inline-arrow open-tour-btn" style="background:none;border:none;cursor:pointer;padding:0;">
+              Explore <span class="arrow">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Meeting Rooms -->
+        <div class="workspace-card">
+          <div class="workspace-img-wrap">
+            <img 
+              src="images/private-office.webp" 
+              alt="Executive conference boardroom with digital presentation display"
+              loading="lazy"
+            >
+          </div>
+          <span class="workspace-tag">Collaborate &amp; Present</span>
+          <h3 class="workspace-title">
+            Meeting rooms <span class="arrow">↗</span>
+          </h3>
+          <p class="workspace-desc">
+            Fully equipped rooms for client presentations, team syncs, and workshops. Available for members and guests.
+          </p>
+          <div class="workspace-subdetail">
+            4K Display · Whiteboard · High-speed Wi-Fi
+          </div>
+          <div class="workspace-card-footer">
+            <span class="workspace-price">From ₹500 / hour</span>
+            <button type="button" class="link-inline-arrow open-tour-btn" style="background:none;border:none;cursor:pointer;padding:0;">
+              Explore <span class="arrow">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p class="disclaimer-note">
+        All plans include high-speed enterprise Wi-Fi, specialty coffee &amp; tea, pantry access, and call booth access. Meeting room credits vary by tier.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       COMPARISON MATRIX SECTION: FIND A PLAN THAT FEELS RIGHT.
+       ======================================================================== -->
+  <section class="section-compare-matrix" id="compare">
+    <div class="container">
+      <div class="compare-header-row">
+        <div>
+          <span class="eyebrow">Compare memberships</span>
+          <h2 class="heading-serif workspaces-title">Find a plan that feels right.</h2>
+          <p class="pricing-subtitle" style="margin-top: 0.5rem;">
+            Everything that's included. Choose how you prefer to make the space yours.
+          </p>
+        </div>
+      </div>
+
+      <!-- Comparison Matrix Table -->
+      <div class="compare-matrix-table-wrap">
+        <table class="compare-matrix-table">
+          <thead>
+            <tr>
+              <th>
+                <span class="matrix-th-title">A good day, included.</span>
+                <span style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 400;">Features and amenities</span>
+              </th>
+              <th>
+                <span class="matrix-th-title">Day or Flex</span>
+                <div class="matrix-plan-name">Drop in</div>
+                <div class="matrix-plan-price">₹4,500 <span style="font-size: 0.8125rem; font-family: var(--font-sans); color: var(--text-muted);">/ month</span></div>
+                <div class="matrix-plan-sub">For everyday agility</div>
+              </th>
+              <th style="background-color: #F8F4EE; border-top: 3px solid var(--terracotta);">
+                <span class="matrix-th-title">Most Popular</span>
+                <div class="matrix-plan-name">Dedicated</div>
+                <div class="matrix-plan-price">₹7,500 <span style="font-size: 0.8125rem; font-family: var(--font-sans); color: var(--text-muted);">/ month</span></div>
+                <div class="matrix-plan-sub">Your own reserved desk</div>
+              </th>
+              <th>
+                <span class="matrix-th-title">Grow Together</span>
+                <div class="matrix-plan-name">Private office</div>
+                <div class="matrix-plan-price">₹24,000 <span style="font-size: 0.8125rem; font-family: var(--font-sans); color: var(--text-muted);">/ month</span></div>
+                <div class="matrix-plan-sub">For teams of 4–12</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="matrix-row-label">Work space</td>
+              <td>Any open hot desk</td>
+              <td style="background-color: #FAF7F2; font-weight: 500;">Your reserved desk</td>
+              <td>Private lockable suite</td>
+            </tr>
+            <tr>
+              <td class="matrix-row-label">Wi-Fi speed &amp; QoS</td>
+              <td>100 Mbps</td>
+              <td style="background-color: #FAF7F2;">200 Mbps priority</td>
+              <td>Gigabit dedicated VLAN</td>
+            </tr>
+            <tr>
+              <td class="matrix-row-label">Meeting room access</td>
+              <td>Pay per use</td>
+              <td style="background-color: #FAF7F2; font-weight: 500;">4 hours / month</td>
+              <td>12 hours / month</td>
+            </tr>
+            <tr>
+              <td class="matrix-row-label">Lockable storage</td>
+              <td>—</td>
+              <td style="background-color: #FAF7F2;">Included pedestal</td>
+              <td>Full office storage</td>
+            </tr>
+            <tr>
+              <td class="matrix-row-label">Coffee, tea &amp; pantry</td>
+              <td>Included</td>
+              <td style="background-color: #FAF7F2;">Included</td>
+              <td>Included</td>
+            </tr>
+            <tr>
+              <td class="matrix-row-label">Access</td>
+              <td>Standard hours (8am–8pm)</td>
+              <td style="background-color: #FAF7F2; font-weight: 500;">Extended hours</td>
+              <td>24/7 keycard access</td>
+            </tr>
+            <tr>
+              <td class="matrix-action-cell"></td>
+              <td class="matrix-action-cell">
+                <button type="button" class="btn btn-outline open-tour-btn" style="width: 100%; font-size: 0.8125rem; padding: 0.6rem 0.75rem;">
+                  Choose Flexible <span class="arrow">↗</span>
+                </button>
+              </td>
+              <td class="matrix-action-cell" style="background-color: #F8F4EE;">
+                <button type="button" class="btn btn-terracotta open-tour-btn" style="width: 100%; font-size: 0.8125rem; padding: 0.6rem 0.75rem;">
+                  Choose Dedicated <span class="arrow">↗</span>
+                </button>
+              </td>
+              <td class="matrix-action-cell">
+                <button type="button" class="btn btn-outline open-tour-btn" style="width: 100%; font-size: 0.8125rem; padding: 0.6rem 0.75rem;">
+                  Inquire for Team <span class="arrow">↗</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="disclaimer-note">
+        Prices are before GST (18%). Flexible passes and dedicated desks can start any day of the month with no lock-in. Meeting room bookings have no membership requirement.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SPLIT MEETING SECTION: MEET WITH A LITTLE MORE INTENTION.
+       ======================================================================== -->
+  <section class="section-meeting-spaces">
+    <div class="container meeting-spaces-grid">
+      <!-- Left Photo: Boardroom -->
+      <div class="split-image-wrap">
+        <img 
+          src="images/private-office.webp" 
+          alt="Stackly Salem premium boardroom with digital display and conference seating"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- Right Content -->
+      <div>
+        <span class="eyebrow">Meeting rooms &amp; Event space</span>
+        <h2 class="heading-serif split-title">
+          Meet with a little more intention.
+        </h2>
+        <p class="split-copy-p">
+          Book space that sets an elevated standard, whether you're hosting a prospective client, running a team retro, or presenting to a stakeholder.
+        </p>
+
+        <div class="meeting-rooms-list">
+          <!-- Room 1 -->
+          <div class="meeting-room-row">
+            <div>
+              <h4>Huddle</h4>
+              <p>4–6 guests · Smart display &amp; whiteboard</p>
+            </div>
+            <span class="meeting-room-rate">₹500 / hour</span>
+          </div>
+
+          <!-- Room 2 -->
+          <div class="meeting-room-row">
+            <div>
+              <h4>Boardroom</h4>
+              <p>8–12 guests · Video conference presentation setup</p>
+            </div>
+            <span class="meeting-room-rate">₹1,000 / hour</span>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-outline open-tour-btn">
+          Enquire about rooms <span class="arrow">↗</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       DARK 3-ITEM HORIZONTAL PILLAR STRIP
+       ======================================================================== -->
+  <section class="section-dark-trio-strip">
+    <div class="container trio-strip-grid">
+      <!-- 1 -->
+      <div class="trio-item">
+        <svg class="trio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <div class="trio-content">
+          <h4>Dedicated host on-site</h4>
+          <p>A friendly face to welcome your guests and keep your workday smooth.</p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="trio-item">
+        <svg class="trio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+          <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+          <line x1="12" y1="20" x2="12.01" y2="20"></line>
+        </svg>
+        <div class="trio-content">
+          <h4>Ultra-fast connectivity</h4>
+          <p>Dual ISP redundancy, low-latency Wi-Fi, and encrypted connection.</p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="trio-item">
+        <svg class="trio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <div class="trio-content">
+          <h4>Quiet booths for calls</h4>
+          <p>Soundproof phone booths for private 1-on-1s without booking a room.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FAQ ACCORDION: A LITTLE MORE CLARITY.
+       ======================================================================== -->
+  <section class="section-faq" id="services-faq">
+    <div class="container faq-layout">
+      <!-- Left Title -->
+      <div class="faq-intro">
+        <span class="eyebrow">Answers &amp; Details</span>
+        <h2 class="heading-serif faq-title">
+          A little more<br>clarity.
+        </h2>
+        <p class="faq-subtitle">
+          We'll help you find the right fit when you visit.
+        </p>
+      </div>
+
+      <!-- Right Accordion -->
+      <div class="faq-accordion" role="region" aria-label="Services FAQ">
+        <!-- Q1 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="true">
+            <span>What is included in the monthly price?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-content">
+            <p class="faq-inner-text">
+              Every membership includes business-grade fiber Internet, unlimited freshly brewed artisanal filter coffee &amp; tea, pantry access, call booth use, and access to all community networking events.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Can I change my plan as my team grows?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-content">
+            <p class="faq-inner-text">
+              Yes, absolutely. You can upgrade from a flexible desk to a dedicated desk or a private office at any time without penalty.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>How do meeting room credits work?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-content">
+            <p class="faq-inner-text">
+              Dedicated desk and private office members receive complimentary hours each month. Unused credits roll over for 30 days.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Can non-members reserve meeting rooms?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-content">
+            <p class="faq-inner-text">
+              Yes, external guests and visiting companies can book huddle rooms and boardrooms by the hour directly online.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>What deposit or contract terms are required?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-content">
+            <p class="faq-inner-text">
+              We don't lock you in. Desks are on month-to-month agreements with a simple 1-month refundable security deposit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TERRACOTTA CTA BANNER
+       ======================================================================== -->
+  <section class="section-cta-banner">
+    <div class="container cta-flex-container">
+      <div class="cta-left-content">
+        <span class="cta-eyebrow">Your next chapter starts here</span>
+        <h2 class="cta-title">A better workday, in person.</h2>
+        <p class="cta-subtitle">Come for a tour. Find your corner. Make yourself at work.</p>
+      </div>
+      <div>
+        <button type="button" class="btn btn-white open-tour-btn">
+          Book your Salem tour <span class="arrow">↗</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SITE FOOTER (DARK)
+       ======================================================================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="footer-logo" aria-label="Stackly Coworking Home">
+            <img src="images/stackly logo.webp" alt="Stackly" class="stackly-brand-img">
+          </a>
+          <p class="footer-mission-text">
+            Thoughtful spaces, meaningful connections, a little more possibility in every workday.
+          </p>
+          <div class="footer-location-pin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Salem, Tamil Nadu</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Explore -->
+        <div>
+          <h4 class="footer-col-title">Explore</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html" class="footer-link">Home</a></li>
+            <li><a href="404.html" class="footer-link">About Stackly</a></li>
+            <li><a href="404.html" class="footer-link">Our workspaces</a></li>
+            <li><a href="404.html" class="footer-link">Blog &amp; Articles</a></li>
+            <li><a href="404.html" class="footer-link open-tour-btn">Book a tour</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Work your way -->
+        <div>
+          <h4 class="footer-col-title">Work your way</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html" class="footer-link">Flexible desks</a></li>
+            <li><a href="404.html" class="footer-link">Dedicated desks</a></li>
+            <li><a href="404.html" class="footer-link">Private offices</a></li>
+            <li><a href="404.html" class="footer-link">Meeting rooms</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Stay connected -->
+        <div>
+          <h4 class="footer-col-title">Stay connected</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html" class="footer-link open-login-btn">Member login</a></li>
+            <li><a href="404.html" class="footer-link">Contact &amp; visits</a></li>
+            <li><a href="404.html" class="footer-link">Community</a></li>
+            <li><a href="404.html" class="footer-link">Member support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-row">
+        <span>© 2024 Stackly · Coworking Space in Salem</span>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy policy</a>
+          <span>·</span>
+          <a href="404.html">Terms of use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL: BOOK A TOUR
+       ======================================================================== -->
+  <div class="modal-backdrop" id="tourModal" role="dialog" aria-modal="true" aria-labelledby="tourModalTitle">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <span class="modal-eyebrow">Schedule a Visit</span>
+      <h3 class="modal-title" id="tourModalTitle">Book your Salem tour</h3>
+      <p class="modal-subtitle">Come experience the space firsthand. We'll show you around and find the perfect spot for your rhythm.</p>
+
+      <form class="modal-form" id="tourBookingForm" data-validate="true" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tourName" class="form-label">Full Name</label>
+            <input type="text" id="tourName" name="fullname" class="form-input" placeholder="e.g. Anand Kumar" minlength="2" required>
+          </div>
+          <div class="form-group">
+            <label for="tourPhone" class="form-label">Phone Number</label>
+            <input type="tel" id="tourPhone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tourEmail" class="form-label">Email Address</label>
+          <input type="email" id="tourEmail" name="email" class="form-input" placeholder="anand@example.com" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tourSpaceType" class="form-label">Interested Workspace</label>
+            <select id="tourSpaceType" name="workspaceType" class="form-select" required>
+              <option value="Flexible Desk">Flexible Desk (Drop-in / Hot Desk)</option>
+              <option value="Dedicated Desk" selected>Dedicated Desk (Your Own Spot)</option>
+              <option value="Private Office">Private Team Office (4-12 people)</option>
+              <option value="Meeting Room">Meeting Room (Hourly)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tourDate" class="form-label">Preferred Date</label>
+            <input type="date" id="tourDate" name="tourDate" class="form-input" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tourMessage" class="form-label">Anything specific you'd like to ask?</label>
+          <textarea id="tourMessage" class="form-textarea" placeholder="Tell us about your team size, work routine, or moving timeline..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-terracotta" style="width: 100%; margin-top: 0.5rem;">
+          Confirm Tour Request <span class="arrow">↗</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: MEMBER LOGIN
+       ======================================================================== -->
+  <div class="modal-backdrop" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal-dialog" style="max-width: 440px;">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <span class="modal-eyebrow">Stackly Portal</span>
+      <h3 class="modal-title" id="loginModalTitle">Member Login</h3>
+      <p class="modal-subtitle">Access your Wi-Fi credentials, book meeting rooms, and manage billing.</p>
+
+      <form class="modal-form" id="memberLoginForm" data-validate="true" novalidate>
+        <div class="form-group">
+          <label for="loginEmail" class="form-label">Email</label>
+          <input type="email" id="loginEmail" name="email" class="form-input" placeholder="member@stackly.in" required>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword" class="form-label">Password</label>
+          <input type="password" id="loginPassword" name="password" class="form-input" placeholder="••••••••" minlength="6" required>
+        </div>
+
+        <button type="submit" class="btn btn-terracotta" style="width: 100%; margin-top: 0.5rem;">
+          Sign In <span class="arrow">↗</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MOBILE NAVIGATION DRAWER
+       ======================================================================== -->
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Coworking Home">
+        <img src="images/stackly logo.webp" alt="Stackly" class="stackly-brand-img dark-text">
+      </a>
+      <button type="button" class="modal-close-btn" id="closeMobileMenu" aria-label="Close menu">&times;</button>
+    </div>
+
+          <nav class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link active">Services</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+        <a href="blog.html" class="mobile-nav-link">Blog</a>
+        <a href="login.html" class="mobile-nav-link">Member login</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="contact.html#book-tour" class="btn btn-terracotta w-full open-tour-btn">
+          Book a tour <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       TOAST NOTIFICATION
+       ======================================================================== -->
+  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+    <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span id="toastMsg">Tour request sent! We look forward to meeting you.</span>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="validation.js"></script>
+</body>
+</html>

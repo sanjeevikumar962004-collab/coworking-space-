@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog &amp; Perspectives — Stackly Coworking Salem</title>
+  <meta name="description" content="Read notes, workday rituals, founder profiles, and thoughts on making room for what matters from Stackly Salem.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <!-- ========================================================================
+       SITE HEADER / NAVIGATION
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container-wide header-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Stackly Coworking Home">
+        <img src="images/stackly logo.webp" alt="Stackly" class="stackly-brand-img dark-text">
+      </a>
+
+            <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+      </nav>
+
+      <!-- Desktop Action Links -->
+      <div class="header-actions">
+        <a href="login.html" class="login-link">Member login</a>
+        <a href="contact.html#book-tour" class="btn btn-terracotta open-tour-btn">
+          Book a tour <span class="arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button type="button" class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       BLOG HERO SECTION
+       ======================================================================== -->
+  <section class="hero-blog">
+    <div class="container">
+      <span class="eyebrow">Perspectives &amp; Community</span>
+      <h1 class="heading-serif hero-title" style="max-width: 800px; margin-bottom: 1rem;">
+        Notes on better work, community &amp; Salem.
+      </h1>
+      <p class="hero-subtitle" style="max-width: 650px; margin-bottom: 2rem;">
+        Stories, workday rituals, founder profiles, and thoughts on making room for what matters.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="blog-filter-bar" role="tablist">
+        <button type="button" class="blog-filter-btn active" data-category="all">All Articles</button>
+        <button type="button" class="blog-filter-btn" data-category="rituals">Workday Rituals</button>
+        <button type="button" class="blog-filter-btn" data-category="founders">Salem Founders</button>
+        <button type="button" class="blog-filter-btn" data-category="productivity">Productivity &amp; Space</button>
+        <button type="button" class="blog-filter-btn" data-category="community">Community Notes</button>
+      </div>
+
+      <!-- Featured Story Card -->
+      <article class="featured-story-card open-article-btn" data-title="The Case for the Third Space: Why Kitchen Tables and Coffee Shops Fall Short" data-category="Workday Rituals" data-author="Senthil Rajan · Founder, Stackly" data-date="Oct 24, 2024">
+        <div class="featured-img-wrap">
+          <img 
+            src="images/blog-hero-focus.webp" 
+            alt="Warm sunlit morning workspace corner with coffee and natural illumination"
+            loading="eager"
+          >
+        </div>
+        <div class="featured-content-wrap">
+          <span class="article-category-tag">Workday Rituals · 5 Min Read</span>
+          <h2 class="heading-serif featured-title">
+            The Case for the Third Space: Why Kitchen Tables and Coffee Shops Fall Short
+          </h2>
+          <p class="featured-excerpt">
+            Independent minds shouldn't have to oscillate between the isolation of home and the unpredictable bustle of a café. Exploring the psychology of considered spaces that protect deep focus while leaving room for serendipity.
+          </p>
+          <div class="article-meta-row">
+            <span>By Senthil Rajan</span>
+            <span>·</span>
+            <span>Oct 24, 2024</span>
+            <span class="link-inline-arrow" style="margin-left: auto;">
+              Read article <span class="arrow">↗</span>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Articles 3-Column Grid -->
+      <div class="articles-grid" id="articlesGrid">
+        <!-- Article 1 -->
+        <article class="article-card open-article-btn" data-category="founders" data-title="How Salem's Remote Founders Are Building Global Startups from Home" data-author="Kavitha M. · Community Host" data-date="Oct 18, 2024">
+          <div class="article-thumb-wrap">
+            <img 
+              src="images/team-brainstorm.webp" 
+              alt="Salem entrepreneurs laughing and working together at a shared wooden desk"
+              loading="lazy"
+            >
+          </div>
+          <div class="article-card-body">
+            <span class="article-category-tag">Salem Founders · 4 Min</span>
+            <h3 class="article-title">
+              How Salem's Remote Founders Are Building Global Startups from Home
+            </h3>
+            <p class="article-snippet">
+              Three entrepreneurs on leaving Tier-1 metros, returning to Salem, and the quiet advantages of building without urban burnout.
+            </p>
+            <div class="article-card-footer">
+              <span>Oct 18, 2024</span>
+              <span class="link-inline-arrow">Read ↗</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="article-card open-article-btn" data-category="productivity" data-title="Designing for Deep Work: The Science of Acoustic Calm & Natural Daylight" data-author="Arun Prasad · Space Architect" data-date="Oct 12, 2024">
+          <div class="article-thumb-wrap">
+            <img 
+              src="images/workspace-desk-800.webp" 
+              alt="Architectural focus zone with clean lines and indirect daylight"
+              loading="lazy"
+            >
+          </div>
+          <div class="article-card-body">
+            <span class="article-category-tag">Productivity &amp; Space · 6 Min</span>
+            <h3 class="article-title">
+              Designing for Deep Work: The Science of Acoustic Calm &amp; Natural Daylight
+            </h3>
+            <p class="article-snippet">
+              Why open floor plans often fail focus, and how considered zoning, phone booths, and circadian lighting unlock effortless output.
+            </p>
+            <div class="article-card-footer">
+              <span>Oct 12, 2024</span>
+              <span class="link-inline-arrow">Read ↗</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="article-card open-article-btn" data-category="community" data-title="The 10-Minute Coffee Ritual: How Spontaneous Chats Spark Real Collaborations" data-author="Senthil Rajan" data-date="Oct 04, 2024">
+          <div class="article-thumb-wrap">
+            <img 
+              src="images/community-collab.webp" 
+              alt="Colleagues connecting over fresh artisanal coffee in the pantry lounge"
+              loading="lazy"
+            >
+          </div>
+          <div class="article-card-body">
+            <span class="article-category-tag">Community Notes · 3 Min</span>
+            <h3 class="article-title">
+              The 10-Minute Coffee Ritual: How Spontaneous Chats Spark Real Collaborations
+            </h3>
+            <p class="article-snippet">
+              We ditched awkward networking mixers for something simpler: great filter coffee, shared break tables, and natural introductions.
+            </p>
+            <div class="article-card-footer">
+              <span>Oct 04, 2024</span>
+              <span class="link-inline-arrow">Read ↗</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="article-card open-article-btn" data-category="rituals" data-title="Flexible vs. Dedicated: How to Choose the Right Desk for Your Working Rhythm" data-author="Kavitha M. · Community Host" data-date="Sep 28, 2024">
+          <div class="article-thumb-wrap">
+            <img 
+              src="images/podcast-studio.webp" 
+              alt="Ergonomic wooden dedicated workstation with task monitor"
+              loading="lazy"
+            >
+          </div>
+          <div class="article-card-body">
+            <span class="article-category-tag">Workday Rituals · 4 Min</span>
+            <h3 class="article-title">
+              Flexible vs. Dedicated: How to Choose the Right Desk for Your Working Rhythm
+            </h3>
+            <p class="article-snippet">
+              A practical guide to evaluating your weekly schedule, hybrid remote balance, and equipment needs before committing to a membership.
+            </p>
+            <div class="article-card-footer">
+              <span>Sep 28, 2024</span>
+              <span class="link-inline-arrow">Read ↗</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="article-card open-article-btn" data-category="founders" data-title="Salem's Next Chapter: The Quiet Rise of Tamil Nadu's Creator & Tech Ecosystem" data-author="Senthil Rajan" data-date="Sep 19, 2024">
+          <div class="article-thumb-wrap">
+            <img 
+              src="images/creative-discussion.webp" 
+              alt="Young software builders discussing project roadmaps in Salem"
+              loading="lazy"
+            >
+          </div>
+          <div class="article-card-body">
+            <span class="article-category-tag">Salem Founders · 5 Min</span>
+            <h3 class="article-title">
+              Salem's Next Chapter: The Quiet Rise of Tamil Nadu's Creator &amp; Tech Ecosystem
+            </h3>
+            <p class="article-snippet">
+              From textile roots to SaaS engineering teams, Salem is witnessing a new wave of homegrown ambition and technical talent.
+            </p>
+            <div class="article-card-footer">
+              <span>Sep 19, 2024</span>
+              <span class="link-inline-arrow">Read ↗</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="article-card open-article-btn" data-category="community" data-title="A Host, Not a Helpdesk: The Thoughtful Hospitality of Stackly" data-author="Arun Prasad" data-date="Sep 10, 2024">
+          <div class="article-thumb-wrap">
+            <img 
+              src="images/sunlit-hot-desk.webp" 
+              alt="Stackly welcoming front desk and community hospitality lounge"
+              loading="lazy"
+            >
+          </div>
+          <div class="article-card-body">
+            <span class="article-category-tag">Community Notes · 4 Min</span>
+            <h3 class="article-title">
+              A Host, Not a Helpdesk: The Thoughtful Hospitality of Stackly
+            </h3>
+            <p class="article-snippet">
+              Why we believe every great workspace needs a person who notices when your tea cup is empty and ensures your presentation runs without a hitch.
+            </p>
+            <div class="article-card-footer">
+              <span>Sep 10, 2024</span>
+              <span class="link-inline-arrow">Read ↗</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       NEWSLETTER BOX: THE STACKLY DISPATCH
+       ======================================================================== -->
+  <section class="section-newsletter">
+    <div class="container">
+      <div class="newsletter-box">
+        <span class="eyebrow" style="text-align: center; margin-bottom: 0.5rem;">Stay in the loop</span>
+        <h3 class="heading-serif">The Stackly Dispatch</h3>
+        <p>A monthly reflection on craft, calm focus, and creative work in Salem. No spam, just considered thoughts.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Enter your email address" required>
+          <button type="submit" class="btn btn-terracotta">
+            Subscribe <span class="arrow">↗</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TERRACOTTA CTA BANNER
+       ======================================================================== -->
+  <section class="section-cta-banner">
+    <div class="container cta-flex-container">
+      <div class="cta-left-content">
+        <span class="cta-eyebrow">Your next chapter starts here</span>
+        <h2 class="cta-title">A better workday, in person.</h2>
+        <p class="cta-subtitle">Come for a tour. Find your corner. Make yourself at work.</p>
+      </div>
+      <div>
+        <button type="button" class="btn btn-white open-tour-btn">
+          Book your Salem tour <span class="arrow">↗</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SITE FOOTER (DARK)
+       ======================================================================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="footer-logo" aria-label="Stackly Coworking Home">
+            <img src="images/stackly logo.webp" alt="Stackly" class="stackly-brand-img">
+          </a>
+          <p class="footer-mission-text">
+            Thoughtful spaces, meaningful connections, a little more possibility in every workday.
+          </p>
+          <div class="footer-location-pin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Salem, Tamil Nadu</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Explore -->
+        <div>
+          <h4 class="footer-col-title">Explore</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html" class="footer-link">Home</a></li>
+            <li><a href="404.html" class="footer-link">About Stackly</a></li>
+            <li><a href="404.html" class="footer-link">Our workspaces</a></li>
+            <li><a href="404.html" class="footer-link">Blog &amp; Articles</a></li>
+            <li><a href="404.html" class="footer-link open-tour-btn">Book a tour</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Work your way -->
+        <div>
+          <h4 class="footer-col-title">Work your way</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html" class="footer-link">Flexible desks</a></li>
+            <li><a href="404.html" class="footer-link">Dedicated desks</a></li>
+            <li><a href="404.html" class="footer-link">Private offices</a></li>
+            <li><a href="404.html" class="footer-link">Meeting rooms</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Stay connected -->
+        <div>
+          <h4 class="footer-col-title">Stay connected</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html" class="footer-link open-login-btn">Member login</a></li>
+            <li><a href="404.html" class="footer-link">Contact &amp; visits</a></li>
+            <li><a href="404.html" class="footer-link">Community</a></li>
+            <li><a href="404.html" class="footer-link">Member support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-row">
+        <span>© 2024 Stackly · Coworking Space in Salem</span>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy policy</a>
+          <span>·</span>
+          <a href="404.html">Terms of use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL: ARTICLE READER
+       ======================================================================== -->
+  <div class="modal-backdrop" id="articleReaderModal" role="dialog" aria-modal="true" aria-labelledby="readerArticleTitle">
+    <div class="modal-dialog" style="max-width: 680px;">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <span class="modal-eyebrow" id="readerCategory">Workday Rituals · 5 Min Read</span>
+      <h3 class="modal-title" id="readerArticleTitle" style="font-size: 2rem; margin-bottom: 0.75rem;">Article Title</h3>
+      <p class="modal-subtitle" id="readerMeta" style="margin-bottom: 1.5rem;">By Senthil Rajan · Oct 24, 2024</p>
+
+      <div style="font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.75; display: flex; flex-direction: column; gap: 1.25rem;">
+        <p>
+          Independent minds shouldn't have to choose between a lonely kitchen table and the noise of a café. Growing teams shouldn't drown in the headaches of managing an office.
+        </p>
+        <p>
+          At Stackly, we built our spaces around two fundamental human needs that are often treated as opposites: the need for uninterrupted deep focus, and the quiet craving for genuine community.
+        </p>
+        <blockquote style="border-left: 3px solid var(--terracotta); padding-left: 1.25rem; font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-primary); margin: 0.5rem 0;">
+          "A workday can do more than hold your desk. It should support your focus, celebrate your people, and make room for possibility."
+        </blockquote>
+        <p>
+          Whether you choose a flexible drop-in desk or a dedicated four-person cabin for your software team, you are stepping into a setting crafted to respect your rhythm.
+        </p>
+      </div>
+
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.8125rem; color: var(--text-muted);">Share this reflection with your team</span>
+        <button type="button" class="btn btn-terracotta open-tour-btn" style="font-size: 0.8125rem; padding: 0.6rem 1rem;">
+          Book a visit to Stackly <span class="arrow">↗</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: BOOK A TOUR
+       ======================================================================== -->
+  <div class="modal-backdrop" id="tourModal" role="dialog" aria-modal="true" aria-labelledby="tourModalTitle">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <span class="modal-eyebrow">Schedule a Visit</span>
+      <h3 class="modal-title" id="tourModalTitle">Book your Salem tour</h3>
+      <p class="modal-subtitle">Come experience the space firsthand. We'll show you around and find the perfect spot for your rhythm.</p>
+
+      <form class="modal-form" id="tourBookingForm" data-validate="true" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tourName" class="form-label">Full Name</label>
+            <input type="text" id="tourName" name="fullname" class="form-input" placeholder="e.g. Anand Kumar" minlength="2" required>
+          </div>
+          <div class="form-group">
+            <label for="tourPhone" class="form-label">Phone Number</label>
+            <input type="tel" id="tourPhone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tourEmail" class="form-label">Email Address</label>
+          <input type="email" id="tourEmail" name="email" class="form-input" placeholder="anand@example.com" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tourSpaceType" class="form-label">Interested Workspace</label>
+            <select id="tourSpaceType" name="workspaceType" class="form-select" required>
+              <option value="Flexible Desk">Flexible Desk (Drop-in / Hot Desk)</option>
+              <option value="Dedicated Desk" selected>Dedicated Desk (Your Own Spot)</option>
+              <option value="Private Office">Private Team Office (4-12 people)</option>
+              <option value="Meeting Room">Meeting Room (Hourly)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tourDate" class="form-label">Preferred Date</label>
+            <input type="date" id="tourDate" name="tourDate" class="form-input" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tourMessage" class="form-label">Anything specific you'd like to ask?</label>
+          <textarea id="tourMessage" class="form-textarea" placeholder="Tell us about your team size, work routine, or moving timeline..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-terracotta" style="width: 100%; margin-top: 0.5rem;">
+          Confirm Tour Request <span class="arrow">↗</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: MEMBER LOGIN
+       ======================================================================== -->
+  <div class="modal-backdrop" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal-dialog" style="max-width: 440px;">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <span class="modal-eyebrow">Stackly Portal</span>
+      <h3 class="modal-title" id="loginModalTitle">Member Login</h3>
+      <p class="modal-subtitle">Access your Wi-Fi credentials, book meeting rooms, and manage billing.</p>
+
+      <form class="modal-form" id="memberLoginForm" data-validate="true" novalidate>
+        <div class="form-group">
+          <label for="loginEmail" class="form-label">Email</label>
+          <input type="email" id="loginEmail" name="email" class="form-input" placeholder="member@stackly.in" required>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword" class="form-label">Password</label>
+          <input type="password" id="loginPassword" name="password" class="form-input" placeholder="••••••••" minlength="6" required>
+        </div>
+
+        <button type="submit" class="btn btn-terracotta" style="width: 100%; margin-top: 0.5rem;">
+          Sign In <span class="arrow">↗</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MOBILE NAVIGATION DRAWER
+       ======================================================================== -->
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Coworking Home">
+        <img src="images/stackly logo.webp" alt="Stackly" class="stackly-brand-img dark-text">
+      </a>
+      <button type="button" class="modal-close-btn" id="closeMobileMenu" aria-label="Close menu">&times;</button>
+    </div>
+
+          <nav class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+        <a href="blog.html" class="mobile-nav-link active">Blog</a>
+        <a href="login.html" class="mobile-nav-link">Member login</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="contact.html#book-tour" class="btn btn-terracotta w-full open-tour-btn">
+          Book a tour <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       TOAST NOTIFICATION
+       ======================================================================== -->
+  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+    <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span id="toastMsg">Subscribed! Welcome to The Stackly Dispatch.</span>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="validation.js"></script>
+</body>
+</html>
