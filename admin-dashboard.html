@@ -85,14 +85,14 @@
     <!-- Mobile / Tablet Drawer Backdrop Overlay -->
     <div id="adminSidebarBackdrop" onclick="toggleAdminMobileSidebar(false)" class="fixed inset-0 bg-dark/70 backdrop-blur-sm z-40 hidden transition-opacity duration-300 opacity-0 lg:hidden" aria-hidden="true"></div>
 
-    <!-- ADMIN SIDEBAR: Responsive Left Navigation (Fixed Desktop Slidebar & Slide-over Mobile/Tablet Drawer) -->
+    <!-- ADMIN SIDEBAR: Responsive Left Navigation -->
     <aside id="adminDashboardSidebar" class="sidebar-transition fixed top-0 bottom-0 left-0 z-50 w-72 lg:w-64 xl:w-72 bg-dark text-white flex flex-col justify-between border-r border-white/10 shadow-2xl -translate-x-full lg:translate-x-0">
         
         <!-- Sidebar Top Area: Admin Logo & Close Button (Mobile) -->
         <div>
             <div class="p-5 sm:p-6 border-b border-white/10 flex items-center justify-between">
                 <a href="javascript:void(0)" onclick="switchAdminTab('overview')" class="flex items-center gap-3 group" title="Console Overview">
-                    <img src="images/stackly logo.webp" alt="Stackly" class="h-7 w-auto object-contain">
+                    <img src="images/stackly logo.webp" alt="Stackly" class="h-9 w-auto object-contain">
                 </a>
 
                 <!-- Mobile Close Toggle Button -->
@@ -150,7 +150,7 @@
                 <img src="images/c1.webp" alt="Super Admin" class="w-10 h-10 rounded-full object-cover ring-2 ring-terracotta/60 shadow-sm flex-shrink-0">
                 <div class="sidebar-text flex-1 min-w-0">
                     <div class="text-sm font-bold truncate text-white admin-display-name">Super Admin</div>
-                    <div class="text-[11px] text-[#E7A896] truncate font-medium admin-display-role">Hub Operations Director</div>
+                    <div class="text-[11px] text-[#E7A896] truncate font-medium">Operations Lead</div>
                     <div class="text-[10px] text-gray-400 truncate admin-display-email">admin@testackly.com</div>
                 </div>
                 <a href="login.html" onclick="localStorage.removeItem('stackly_user')" class="w-8 h-8 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition" title="Sign out" aria-label="Sign out">
@@ -165,54 +165,60 @@
         
         <!-- Sticky Top Bar for Mobile, Tablet & Desktop Controls -->
         <header class="bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E7E2DA] sticky top-0 z-30">
-            <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+            <div class="max-w-[1600px] mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
                 
                 <!-- Left: Mobile Menu Toggle Button & Desktop Slidebar Collapse Button -->
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
                     <!-- Mobile Hamburger Button -->
-                    <button onclick="toggleAdminMobileSidebar(true)" class="lg:hidden p-2.5 rounded-2xl bg-white border border-[#E7E2DA] text-dark hover:bg-gray-100 transition shadow-sm" aria-label="Open admin navigation drawer">
-                        <i class="fa-solid fa-bars-staggered text-lg"></i>
+                    <button onclick="toggleAdminMobileSidebar(true)" class="lg:hidden p-2 rounded-xl bg-white border border-[#E7E2DA] text-dark hover:bg-gray-100 transition shadow-sm flex-shrink-0" aria-label="Open admin navigation drawer">
+                        <i class="fa-solid fa-bars-staggered text-sm sm:text-base"></i>
                     </button>
 
-                    <!-- Mobile Logo -->
-                    <a href="index.html" class="lg:hidden flex items-center" title="Return to Stackly Home">
-                        <img src="images/stackly logo.webp" alt="Stackly" class="h-6 w-auto object-contain filter brightness-0">
+                    <!-- Mobile Brand Logo -->
+                    <a href="index.html" class="lg:hidden flex items-center flex-shrink-0" title="Return to Stackly Home">
+                        <img src="images/stackly logo.webp" alt="Stackly" class="h-7 sm:h-9 w-auto object-contain filter brightness-0">
                     </a>
 
                     <!-- Desktop Sidebar Collapse Toggle Button -->
-                    <button id="adminDesktopSidebarToggle" onclick="toggleAdminDesktopSidebarCollapse()" class="hidden lg:flex items-center gap-2 p-2.5 rounded-2xl bg-white border border-[#E7E2DA] text-gray-600 hover:text-dark transition shadow-sm" title="Collapse / Expand Sidebar">
+                    <button id="adminDesktopSidebarToggle" onclick="toggleAdminDesktopSidebarCollapse()" class="hidden lg:flex items-center gap-2 p-2.5 rounded-2xl bg-white border border-[#E7E2DA] text-gray-600 hover:text-dark transition shadow-sm flex-shrink-0" title="Collapse / Expand Sidebar">
                         <i id="adminDesktopSidebarToggleIcon" class="fa-solid fa-bars text-sm"></i>
                     </button>
 
-                    <!-- System Health Status Pill -->
-                    <div class="flex items-center gap-2 text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
+                    <!-- System Health Status Pill (Desktop & Tablet) -->
+                    <div class="hidden md:flex items-center gap-2 text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200 flex-shrink-0">
                         <span class="w-2 h-2 bg-emerald-600 rounded-full animate-ping"></span>
-                        <span class="hidden sm:inline">Salem Hub Systems:</span> 99.99% Online &bull; Turnstiles Active
+                        <span class="hidden xl:inline">Salem Hub Systems: </span><span>99.99% Online</span><span class="hidden 2xl:inline"> &bull; Turnstiles Active</span>
+                    </div>
+
+                    <!-- Compact Status Pill (Mobile) -->
+                    <div class="md:hidden flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex-shrink-0">
+                        <span class="w-1.5 h-1.5 bg-emerald-600 rounded-full"></span>
+                        <span>Online</span>
                     </div>
                 </div>
 
                 <!-- Right: Quick Header Tools & Admin Profile Pill -->
-                <div class="flex items-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                     <!-- Search Audit Bar (Simulated) -->
-                    <div class="relative hidden md:block">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
-                        <input type="text" onkeydown="if(event.key==='Enter') (window.showToast ? window.showToast('Campus audit filter applied: ' + this.value, 'info') : null)" placeholder="Search resident, badge ID, desk..." class="pl-9 pr-4 py-2 bg-white border border-[#E7E2DA] rounded-xl text-xs text-dark placeholder-gray-400 focus:outline-none focus:border-terracotta w-48 lg:w-64 transition shadow-sm">
+                    <div class="relative hidden lg:block">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                        <input type="text" onkeydown="if(event.key==='Enter') (window.showToast ? window.showToast('Campus audit filter applied: ' + this.value, 'info') : null)" placeholder="Search..." class="pl-8 pr-3 py-1.5 bg-white border border-[#E7E2DA] rounded-xl text-xs text-dark placeholder-gray-400 focus:outline-none focus:border-terracotta w-36 xl:w-56 transition shadow-sm">
                     </div>
 
                     <!-- Export Log Button (Desktop Shortcut) -->
-                    <button onclick="window.showToast ? window.showToast('Full campus audit log exported (PDF).', 'success') : null" class="hidden sm:flex px-4 py-2 bg-dark text-white rounded-xl text-xs font-bold hover:bg-terracotta transition items-center gap-1.5 shadow-sm">
+                    <button onclick="window.showToast ? window.showToast('Full campus audit log exported (PDF).', 'success') : null" class="hidden xl:flex px-3.5 py-1.5 bg-dark text-white rounded-xl text-xs font-bold hover:bg-terracotta transition items-center gap-1.5 shadow-sm">
                         <i class="fa-solid fa-file-arrow-down text-xs"></i> Audit Log
                     </button>
 
                     <!-- Admin Profile Pill -->
-                    <div class="flex items-center gap-3 pl-2 sm:pl-4 border-l border-[#E7E2DA]">
-                        <img src="images/c1.webp" alt="Super Admin" class="w-9 h-9 rounded-full object-cover ring-2 ring-terracotta/40 shadow-sm flex-shrink-0">
+                    <div class="flex items-center gap-2 sm:gap-3 pl-2 sm:pl-3 border-l border-[#E7E2DA]">
+                        <img src="images/c1.webp" alt="Super Admin" class="w-7 h-7 sm:w-9 sm:h-9 rounded-full object-cover ring-2 ring-terracotta/40 shadow-sm flex-shrink-0">
                         <div class="hidden sm:block text-left">
                             <div class="text-xs font-bold text-dark leading-tight admin-display-name">Super Admin</div>
                             <div class="text-[10px] text-gray-400 font-medium admin-display-email">admin@testackly.com</div>
                         </div>
-                        <a href="login.html" onclick="localStorage.removeItem('stackly_user')" class="text-gray-400 hover:text-red-500 transition p-1.5 rounded-lg hover:bg-gray-100" title="Sign Out">
-                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <a href="login.html" onclick="localStorage.removeItem('stackly_user')" class="text-gray-400 hover:text-red-500 transition p-1 sm:p-1.5 rounded-lg hover:bg-gray-100" title="Sign Out">
+                            <i class="fa-solid fa-arrow-right-from-bracket text-xs sm:text-sm"></i>
                         </a>
                     </div>
                 </div>
@@ -220,25 +226,25 @@
         </header>
 
         <!-- Main Dashboard View Container -->
-        <main class="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+        <main class="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6 sm:space-y-8">
             
             <!-- Top Stats Banner -->
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 bg-white p-6 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm">
-                <div class="space-y-1">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-5 sm:gap-6 bg-white p-5 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm">
+                <div class="space-y-1.5">
                     <div class="inline-flex items-center gap-2 text-xs font-bold text-[#A44C32] uppercase tracking-wider">
                         <i class="fa-solid fa-building-user text-terracotta"></i> Salem Fairlands Campus Operations
                     </div>
-                    <h1 class="text-2xl sm:text-3xl font-serif font-bold text-dark">
+                    <h1 class="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-dark">
                         Space Utilization &amp; Member Roster Console
                     </h1>
-                    <p class="text-gray-500 text-sm">Real-time occupancy tracking, turnstile access health, and private team office onboarding.</p>
+                    <p class="text-gray-500 text-xs sm:text-sm max-w-2xl">Real-time occupancy tracking, turnstile access health, and private team office onboarding for Salem's premier workspace.</p>
                 </div>
 
-                <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full md:w-auto">
-                    <button onclick="window.showToast ? window.showToast('Full campus occupancy & revenue audit exported.', 'success') : null" class="flex-1 sm:flex-none px-6 py-3 bg-dark text-white rounded-2xl text-xs font-bold hover:bg-terracotta transition flex items-center justify-center gap-2 shadow-sm">
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
+                    <button onclick="window.showToast ? window.showToast('Full campus occupancy & revenue audit exported.', 'success') : null" class="w-full sm:w-auto px-5 py-2.5 sm:py-3 bg-dark text-white rounded-2xl text-xs font-bold hover:bg-terracotta transition flex items-center justify-center gap-2 shadow-sm">
                         <i class="fa-solid fa-file-arrow-down"></i> Export Audit Log
                     </button>
-                    <button onclick="window.showToast ? window.showToast('Turnstiles & smart lock nodes synchronized successfully.', 'info') : null" class="flex-1 sm:flex-none px-6 py-3 bg-white border border-[#E7E2DA] text-dark rounded-2xl text-xs font-bold hover:border-dark hover:bg-stone-50 transition flex items-center justify-center gap-2 shadow-sm">
+                    <button onclick="window.showToast ? window.showToast('Turnstiles & smart lock nodes synchronized successfully.', 'info') : null" class="w-full sm:w-auto px-5 py-2.5 sm:py-3 bg-white border border-[#E7E2DA] text-dark rounded-2xl text-xs font-bold hover:border-dark hover:bg-stone-50 transition flex items-center justify-center gap-2 shadow-sm">
                         <i class="fa-solid fa-rotate"></i> Sync Gate Nodes
                     </button>
                 </div>
@@ -246,19 +252,19 @@
 
             <!-- Mobile & Tablet Secondary Tab Bar -->
             <div class="lg:hidden flex items-center gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none">
-                <button onclick="switchAdminTab('overview')" id="mobile-adm-overview" class="mobile-adm-tab-btn active-admin-tab px-4 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-2 bg-dark text-white">
-                    <i class="fa-solid fa-gauge-high"></i> Occupancy &amp; Revenue
+                <button onclick="switchAdminTab('overview')" id="mobile-adm-overview" class="mobile-adm-tab-btn active-admin-tab px-3.5 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-1.5 bg-dark text-white">
+                    <i class="fa-solid fa-gauge-high"></i> Overview
                 </button>
-                <button onclick="switchAdminTab('kyc')" id="mobile-adm-kyc" class="mobile-adm-tab-btn px-4 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-2 text-gray-600 bg-white border border-[#E7E2DA]">
+                <button onclick="switchAdminTab('kyc')" id="mobile-adm-kyc" class="mobile-adm-tab-btn px-3.5 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-1.5 text-gray-600 bg-white border border-[#E7E2DA]">
                     <i class="fa-solid fa-id-card"></i> Member KYC (28)
                 </button>
-                <button onclick="switchAdminTab('loans')" id="mobile-adm-loans" class="mobile-adm-tab-btn px-4 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-2 text-gray-600 bg-white border border-[#E7E2DA]">
+                <button onclick="switchAdminTab('loans')" id="mobile-adm-loans" class="mobile-adm-tab-btn px-3.5 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-1.5 text-gray-600 bg-white border border-[#E7E2DA]">
                     <i class="fa-solid fa-building-circle-check"></i> Private Suites (14)
                 </button>
-                <button onclick="switchAdminTab('audit')" id="mobile-adm-audit" class="mobile-adm-tab-btn px-4 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-2 text-gray-600 bg-white border border-[#E7E2DA]">
+                <button onclick="switchAdminTab('audit')" id="mobile-adm-audit" class="mobile-adm-tab-btn px-3.5 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-1.5 text-gray-600 bg-white border border-[#E7E2DA]">
                     <i class="fa-solid fa-shield-halved"></i> Gate Security
                 </button>
-                <button onclick="switchAdminTab('settings')" id="mobile-adm-settings" class="mobile-adm-tab-btn px-4 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-2 text-gray-600 bg-white border border-[#E7E2DA]">
+                <button onclick="switchAdminTab('settings')" id="mobile-adm-settings" class="mobile-adm-tab-btn px-3.5 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-1.5 text-gray-600 bg-white border border-[#E7E2DA]">
                     <i class="fa-solid fa-sliders"></i> Policies
                 </button>
             </div>
@@ -266,67 +272,76 @@
             <!-- ========================================== -->
             <!-- TAB 1: OVERVIEW & SPACE ANALYTICS -->
             <!-- ========================================== -->
-            <div id="adm-overview" class="adm-content space-y-8">
+            <div id="adm-overview" class="adm-content space-y-6 sm:space-y-8">
                 
                 <!-- 4 Financial & Coworking KPI Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
                     
                     <!-- KPI 1: Monthly Hub Revenue -->
-                    <div class="p-6 rounded-3xl bg-white border border-[#E7E2DA] shadow-sm hover:shadow-md transition">
-                        <div class="flex justify-between items-center text-gray-500 mb-2">
-                            <span class="text-xs font-bold uppercase tracking-wider">Monthly Recurring Revenue</span>
-                            <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">
-                                <i class="fa-solid fa-indian-rupee-sign"></i>
+                    <div class="p-6 rounded-3xl bg-white border border-[#E7E2DA] shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-gray-500 mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider">Monthly Recurring Revenue</span>
+                                <div class="w-9 h-9 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">
+                                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                                </div>
                             </div>
+                            <div class="text-2xl sm:text-3xl font-black text-dark tracking-tight">₹28,45,000</div>
                         </div>
-                        <div class="text-2xl sm:text-3xl font-black text-dark tracking-tight">₹28,45,000</div>
-                        <div class="flex items-center gap-1.5 text-xs text-emerald-700 font-bold mt-2">
+                        <div class="flex items-center gap-1.5 text-xs text-emerald-700 font-bold mt-3 pt-3 border-t border-gray-100">
                             <i class="fa-solid fa-arrow-trend-up"></i>
                             <span>+18.4% vs last quarter (Salem Hub)</span>
                         </div>
                     </div>
 
                     <!-- KPI 2: Daily Campus Footfall -->
-                    <div class="p-6 rounded-3xl bg-white border border-[#E7E2DA] shadow-sm hover:shadow-md transition">
-                        <div class="flex justify-between items-center text-gray-500 mb-2">
-                            <span class="text-xs font-bold uppercase tracking-wider">Daily Member Check-Ins</span>
-                            <div class="w-8 h-8 rounded-full bg-terracotta/10 text-terracotta flex items-center justify-center text-xs font-bold">
-                                <i class="fa-solid fa-users"></i>
+                    <div class="p-6 rounded-3xl bg-white border border-[#E7E2DA] shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-gray-500 mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider">Daily Member Check-Ins</span>
+                                <div class="w-9 h-9 rounded-2xl bg-terracotta/10 text-terracotta flex items-center justify-center text-xs font-bold">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
                             </div>
+                            <div class="text-2xl sm:text-3xl font-black text-dark tracking-tight">348 Members</div>
                         </div>
-                        <div class="text-2xl sm:text-3xl font-black text-dark tracking-tight">348 Members</div>
-                        <div class="flex items-center gap-1.5 text-xs text-gray-500 mt-2">
-                            <span>Turnstile peak: 09:30 AM — 11:30 AM</span>
+                        <div class="flex items-center gap-1.5 text-xs text-gray-500 mt-3 pt-3 border-t border-gray-100">
+                            <i class="fa-regular fa-clock text-terracotta"></i>
+                            <span>Peak turnstile rush: 09:30 — 11:30 AM</span>
                         </div>
                     </div>
 
                     <!-- KPI 3: Desk Utilization Rate -->
-                    <div class="p-6 rounded-3xl bg-white border border-[#E7E2DA] shadow-sm hover:shadow-md transition">
-                        <div class="flex justify-between items-center text-gray-500 mb-2">
-                            <span class="text-xs font-bold uppercase tracking-wider">Total Desk Capacity</span>
-                            <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">
-                                <i class="fa-solid fa-chair"></i>
+                    <div class="p-6 rounded-3xl bg-white border border-[#E7E2DA] shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-gray-500 mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider">Total Desk Capacity</span>
+                                <div class="w-9 h-9 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">
+                                    <i class="fa-solid fa-chair"></i>
+                                </div>
                             </div>
+                            <div class="text-2xl sm:text-3xl font-black text-dark tracking-tight">412 / 440 Desks</div>
                         </div>
-                        <div class="text-2xl sm:text-3xl font-black text-dark tracking-tight">412 / 440 Desks</div>
-                        <div class="flex items-center gap-1.5 text-xs text-emerald-700 font-bold mt-2">
+                        <div class="flex items-center gap-1.5 text-xs text-emerald-700 font-bold mt-3 pt-3 border-t border-gray-100">
                             <i class="fa-solid fa-circle-check"></i>
-                            <span>93.6% Occupancy Rate</span>
+                            <span>93.6% Occupancy &bull; 28 Desks Free</span>
                         </div>
                     </div>
 
                     <!-- KPI 4: Pending Onboarding Applications -->
-                    <div class="p-6 rounded-3xl bg-white border border-[#E7E2DA] shadow-sm hover:shadow-md transition">
-                        <div class="flex justify-between items-center text-gray-500 mb-2">
-                            <span class="text-xs font-bold uppercase tracking-wider">Pending Space Requests</span>
-                            <div class="w-8 h-8 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center text-xs font-bold">
-                                <i class="fa-solid fa-hourglass-half"></i>
+                    <div class="p-6 rounded-3xl bg-white border border-[#E7E2DA] shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-gray-500 mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider">Pending Space Requests</span>
+                                <div class="w-9 h-9 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xs font-bold">
+                                    <i class="fa-solid fa-hourglass-half"></i>
+                                </div>
                             </div>
+                            <div class="text-2xl sm:text-3xl font-black text-dark tracking-tight">18 Applications</div>
                         </div>
-                        <div class="text-2xl sm:text-3xl font-black text-dark tracking-tight">18 Applications</div>
-                        <div class="flex items-center gap-1.5 text-xs text-amber-700 font-bold mt-2">
+                        <div class="flex items-center gap-1.5 text-xs text-amber-700 font-bold mt-3 pt-3 border-t border-gray-100">
                             <i class="fa-solid fa-clock"></i>
-                            <span>Requires ID and Team Roster Review</span>
+                            <span>KYC &amp; Team Roster Under Review</span>
                         </div>
                     </div>
 
@@ -336,10 +351,10 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     
                     <!-- Chart 1: Daily Footfall & Space Utilization (8 cols) -->
-                    <div class="lg:col-span-8 bg-white p-6 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm space-y-6">
+                    <div class="lg:col-span-8 bg-white p-5 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm space-y-6">
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                             <div>
-                                <h3 class="text-lg font-bold text-dark">Salem Campus Weekly Footfall &amp; Utilization</h3>
+                                <h3 class="text-base sm:text-lg font-bold text-dark">Salem Campus Weekly Footfall &amp; Utilization</h3>
                                 <p class="text-xs text-gray-500">Breakdown of Hot Desks, Dedicated Cabins, and Meeting Pod usage</p>
                             </div>
 
@@ -350,35 +365,35 @@
                         </div>
 
                         <!-- Canvas Container -->
-                        <div class="relative h-72 sm:h-80 w-full">
+                        <div class="relative h-64 sm:h-80 w-full">
                             <canvas id="adminClearanceChart"></canvas>
                         </div>
 
                         <!-- Institutional Stats Summary Strip -->
                         <div class="pt-4 border-t border-gray-100 grid grid-cols-3 gap-2 text-center">
                             <div>
-                                <div class="text-[11px] font-bold text-gray-400 uppercase">Dedicated Desks</div>
+                                <div class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase">Dedicated Desks</div>
                                 <div class="text-sm sm:text-base font-bold text-dark mt-0.5">98.2% Filled</div>
                             </div>
                             <div>
-                                <div class="text-[11px] font-bold text-gray-400 uppercase">Meeting Pods</div>
+                                <div class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase">Meeting Pods</div>
                                 <div class="text-sm sm:text-base font-bold text-terracotta mt-0.5">84.5% Booked</div>
                             </div>
                             <div>
-                                <div class="text-[11px] font-bold text-gray-400 uppercase">Average Dwell</div>
+                                <div class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase">Average Dwell</div>
                                 <div class="text-sm sm:text-base font-bold text-dark mt-0.5">7.4 Hours / Day</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Chart 2: Space Allocation & Revenue Breakdown (4 cols) -->
-                    <div class="lg:col-span-4 bg-white p-6 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm flex flex-col justify-between">
+                    <div class="lg:col-span-4 bg-white p-5 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm flex flex-col justify-between">
                         <div>
-                            <h3 class="text-lg font-bold text-dark">Space Capacity Distribution</h3>
+                            <h3 class="text-base sm:text-lg font-bold text-dark">Space Capacity Distribution</h3>
                             <p class="text-xs text-gray-500 mb-6">Salem Fairlands Campus 440-seat layout</p>
 
                             <!-- Doughnut Canvas with central metric -->
-                            <div class="relative h-48 w-full flex items-center justify-center">
+                            <div class="relative h-44 sm:h-48 w-full flex items-center justify-center">
                                 <canvas id="adminReservesChart"></canvas>
                                 <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                                     <span class="text-2xl font-black text-dark">93.6%</span>
@@ -412,7 +427,7 @@
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center gap-2">
                                         <span class="w-3 h-3 rounded-md bg-amber-500"></span>
-                                        <span class="text-gray-600 font-medium">Meeting Pods &amp; Event Hall</span>
+                                        <span class="text-gray-600 font-medium">Meeting Pods &amp; Hall</span>
                                     </div>
                                     <span class="font-bold text-dark">10% (44 Desks)</span>
                                 </div>
@@ -428,20 +443,163 @@
 
                 </div>
 
+                <!-- Meaningful Widget 1: Real-time Campus Meeting Pods & Boardroom Occupancy Grid -->
+                <div class="bg-white p-5 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm space-y-5">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div>
+                            <h2 class="text-base sm:text-lg font-bold text-dark flex items-center gap-2">
+                                <i class="fa-solid fa-door-open text-terracotta"></i> Real-time Pods &amp; Boardrooms Availability
+                            </h2>
+                            <p class="text-xs text-gray-500">Live hardware telemetry from room occupancy sensors and interactive door displays.</p>
+                        </div>
+                        <div class="text-xs font-bold text-gray-400 bg-surface px-3 py-1.5 rounded-xl border border-[#E7E2DA]">
+                            <span>Salem Fairlands &bull; Level 2 &amp; 3</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Pod 1 -->
+                        <div class="p-4 sm:p-5 rounded-2xl bg-surface border border-[#E7E2DA] space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Boardroom 01</span>
+                                    <h4 class="font-bold text-dark text-sm">Kaveri 10-Seater</h4>
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-red-50 text-red-700 border border-red-200">Occupied</span>
+                            </div>
+                            <div class="text-xs text-gray-600 space-y-1">
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-tie text-gray-400 w-3.5"></i> <span>Alex Morgan &bull; Sprint</span></div>
+                                <div class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-gray-400 w-3.5"></i> <span>Ends in 42 mins (04:00 PM)</span></div>
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-temperature-half text-emerald-600 w-3.5"></i> <span>22.4°C &bull; 4K Screen On</span></div>
+                            </div>
+                            <button onclick="window.showToast ? window.showToast('Kaveri Boardroom session details loaded.', 'info') : null" class="w-full py-2 bg-white hover:bg-stone-50 border border-[#E7E2DA] text-dark font-bold text-xs rounded-xl transition">
+                                Inspect Telemetry
+                            </button>
+                        </div>
+
+                        <!-- Pod 2 -->
+                        <div class="p-4 sm:p-5 rounded-2xl bg-surface border border-[#E7E2DA] space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Media Suite</span>
+                                    <h4 class="font-bold text-dark text-sm">Shevaroy Podcast Pod</h4>
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Available</span>
+                            </div>
+                            <div class="text-xs text-gray-600 space-y-1">
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-microphone text-terracotta w-3.5"></i> <span>Dual Shure SM7B Ready</span></div>
+                                <div class="flex items-center gap-1.5"><i class="fa-regular fa-calendar-check text-gray-400 w-3.5"></i> <span>Next booked at 5:15 PM</span></div>
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-volume-xmark text-blue-600 w-3.5"></i> <span>Acoustic Isolation Normal</span></div>
+                            </div>
+                            <button onclick="window.showToast ? window.showToast('Podcast Pod reserved for VIP visitor.', 'success') : null" class="w-full py-2 bg-dark hover:bg-terracotta text-white font-bold text-xs rounded-xl transition">
+                                Quick Reserve (1h)
+                            </button>
+                        </div>
+
+                        <!-- Pod 3 -->
+                        <div class="p-4 sm:p-5 rounded-2xl bg-surface border border-[#E7E2DA] space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Creative Lab</span>
+                                    <h4 class="font-bold text-dark text-sm">Yercaud Brainstorm</h4>
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">Cleaning</span>
+                            </div>
+                            <div class="text-xs text-gray-600 space-y-1">
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-broom text-amber-600 w-3.5"></i> <span>Turnover in progress</span></div>
+                                <div class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-gray-400 w-3.5"></i> <span>Ready in 10 mins</span></div>
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-users text-gray-400 w-3.5"></i> <span>Capacity: 6 Persons</span></div>
+                            </div>
+                            <button onclick="window.showToast ? window.showToast('Yercaud room marked as ready for check-in.', 'success') : null" class="w-full py-2 bg-white hover:bg-stone-50 border border-[#E7E2DA] text-dark font-bold text-xs rounded-xl transition">
+                                Mark Cleaned
+                            </button>
+                        </div>
+
+                        <!-- Pod 4 -->
+                        <div class="p-4 sm:p-5 rounded-2xl bg-surface border border-[#E7E2DA] space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Quiet Phone Booth</span>
+                                    <h4 class="font-bold text-dark text-sm">Attur Focus Booth 1</h4>
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Available</span>
+                            </div>
+                            <div class="text-xs text-gray-600 space-y-1">
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-amber-500 w-3.5"></i> <span>Standing Desk Enabled</span></div>
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-wifi text-emerald-600 w-3.5"></i> <span>Dedicated CAT6 + Wi-Fi</span></div>
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-gray-400 w-3.5"></i> <span>Auto RFID Tap Latch</span></div>
+                            </div>
+                            <button onclick="window.showToast ? window.showToast('Focus Booth door unlocked remotely.', 'info') : null" class="w-full py-2 bg-white hover:bg-stone-50 border border-[#E7E2DA] text-dark font-bold text-xs rounded-xl transition">
+                                Door Pulse Unlock
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meaningful Widget 2: Campus Infrastructure & Connectivity Telemetry Strip -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 sm:p-5 bg-white rounded-2xl border border-[#E7E2DA] shadow-sm flex items-center gap-3.5">
+                        <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <div class="text-[10px] font-bold text-gray-400 uppercase">Primary Fiber ISP</div>
+                            <div class="text-sm font-bold text-dark truncate">Airtel 1.0 Gbps (Symmetrical)</div>
+                            <div class="text-[11px] text-emerald-700 font-semibold">Ping 3ms &bull; 99.99% Uptime</div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 sm:p-5 bg-white rounded-2xl border border-[#E7E2DA] shadow-sm flex items-center gap-3.5">
+                        <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                            <i class="fa-solid fa-shield-virus"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <div class="text-[10px] font-bold text-gray-400 uppercase">Backup Symmetrical Line</div>
+                            <div class="text-sm font-bold text-dark truncate">Tata Business Fiber 500M</div>
+                            <div class="text-[11px] text-emerald-700 font-semibold">Hot Standby Synced</div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 sm:p-5 bg-white rounded-2xl border border-[#E7E2DA] shadow-sm flex items-center gap-3.5">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                            <i class="fa-solid fa-solar-panel"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <div class="text-[10px] font-bold text-gray-400 uppercase">Solar Rooftop Power</div>
+                            <div class="text-sm font-bold text-dark truncate">8.4 kW Output Current</div>
+                            <div class="text-[11px] text-emerald-700 font-semibold">Supplying 42% Campus Load</div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 sm:p-5 bg-white rounded-2xl border border-[#E7E2DA] shadow-sm flex items-center gap-3.5">
+                        <div class="w-10 h-10 rounded-xl bg-terracotta/10 text-terracotta flex items-center justify-center text-sm font-bold flex-shrink-0">
+                            <i class="fa-solid fa-id-badge"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <div class="text-[10px] font-bold text-gray-400 uppercase">Turnstiles Gateway</div>
+                            <div class="text-sm font-bold text-dark truncate">4 Turnstile Nodes Live</div>
+                            <div class="text-[11px] text-emerald-700 font-semibold">Average Scan 0.3s</div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Live Campus Ledger & Turnstile Access Feed -->
                 <div class="bg-white p-5 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm space-y-6">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                         <div>
-                            <h2 class="text-lg font-bold text-dark">Live Turnstile Stream &amp; Member Activity</h2>
-                            <p class="text-xs text-gray-500">Real-time contactless badge logs and boardroom occupancy.</p>
+                            <h2 class="text-base sm:text-lg font-bold text-dark">Live Turnstile Stream &amp; Member Activity</h2>
+                            <p class="text-xs text-gray-500">Real-time contactless badge logs, visitor passes, and boardroom sessions.</p>
                         </div>
-                        <button onclick="window.showToast ? window.showToast('Turnstile gate ledger refreshed with real-time logs.', 'info') : null" class="text-xs font-bold text-dark hover:text-terracotta flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface border border-[#E7E2DA]">
-                            <i class="fa-solid fa-rotate"></i> Refresh
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <button onclick="window.showToast ? window.showToast('Turnstile gate ledger refreshed with real-time logs.', 'info') : null" class="text-xs font-bold text-dark hover:text-terracotta flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface border border-[#E7E2DA] transition">
+                                <i class="fa-solid fa-rotate"></i> Refresh
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="overflow-x-auto -mx-5 sm:mx-0 px-5 sm:px-0">
-                        <table class="w-full text-left text-xs min-w-[640px]">
+                    <!-- Responsive Table Wrapper with Horizontal Scroll -->
+                    <div class="overflow-x-auto -mx-5 sm:mx-0 px-5 sm:px-0 scrollbar-thin">
+                        <table class="w-full text-left text-xs min-w-[700px]">
                             <thead>
                                 <tr class="border-b border-[#E7E2DA] text-gray-400 uppercase tracking-wider font-bold">
                                     <th class="pb-3 pr-4">Badge ID</th>
@@ -449,7 +607,7 @@
                                     <th class="pb-3 pr-4">Campus Zone</th>
                                     <th class="pb-3 pr-4">Plan / Tenure</th>
                                     <th class="pb-3 pr-4">Access Status</th>
-                                    <th class="pb-3">Action</th>
+                                    <th class="pb-3 text-right">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-100">
@@ -459,7 +617,7 @@
                                     <td class="py-4 pr-4 text-gray-500">Turnstile 1 (Main Lobby)</td>
                                     <td class="py-4 pr-4 font-bold text-dark">Dedicated Desk Resident</td>
                                     <td class="py-4 pr-4"><span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]">Verified Access</span></td>
-                                    <td class="py-4"><span class="px-2.5 py-1 rounded-full bg-surface text-gray-600 font-bold text-[10px]">Active</span></td>
+                                    <td class="py-4 text-right"><span class="px-2.5 py-1 rounded-full bg-surface text-gray-600 font-bold text-[10px]">Active</span></td>
                                 </tr>
                                 <tr class="hover:bg-stone-50 transition">
                                     <td class="py-4 pr-4 font-mono font-bold text-dark">STK-SLM-9014</td>
@@ -467,7 +625,7 @@
                                     <td class="py-4 pr-4 text-gray-500">Kaveri Boardroom (Level 2)</td>
                                     <td class="py-4 pr-4 font-bold text-dark">Private Cabin Member</td>
                                     <td class="py-4 pr-4"><span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]">Session Live (2.5h)</span></td>
-                                    <td class="py-4"><span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-bold text-[10px]">In Progress</span></td>
+                                    <td class="py-4 text-right"><span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-bold text-[10px]">In Progress</span></td>
                                 </tr>
                                 <tr class="hover:bg-stone-50 transition">
                                     <td class="py-4 pr-4 font-mono font-bold text-dark">STK-SLM-7102</td>
@@ -475,12 +633,37 @@
                                     <td class="py-4 pr-4 text-gray-500">Side Gate 3 (Restricted)</td>
                                     <td class="py-4 pr-4 font-bold text-dark">Visitor Badge</td>
                                     <td class="py-4 pr-4"><span class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 font-bold text-[10px]">Review Flagged</span></td>
-                                    <td class="py-4"><button onclick="window.showToast ? window.showToast('Turnstile door 3 locked for security check', 'error') : null" class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 font-bold text-[10px] hover:bg-amber-200 transition">Freeze Badge</button></td>
+                                    <td class="py-4 text-right"><button onclick="window.showToast ? window.showToast('Turnstile door 3 locked for security check', 'error') : null" class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 font-bold text-[10px] hover:bg-amber-200 transition">Freeze Badge</button></td>
+                                </tr>
+                                <tr class="hover:bg-stone-50 transition">
+                                    <td class="py-4 pr-4 font-mono font-bold text-dark">STK-SLM-6430</td>
+                                    <td class="py-4 pr-4 font-semibold text-dark">Vignesh Kumar &bull; Salem Web Solutions</td>
+                                    <td class="py-4 pr-4 text-gray-500">Turnstile 2 (Level 2 Hot Desks)</td>
+                                    <td class="py-4 pr-4 font-bold text-dark">Flexible Desk Member</td>
+                                    <td class="py-4 pr-4"><span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]">Tap Approved</span></td>
+                                    <td class="py-4 text-right"><span class="px-2.5 py-1 rounded-full bg-surface text-gray-600 font-bold text-[10px]">Active</span></td>
+                                </tr>
+                                <tr class="hover:bg-stone-50 transition">
+                                    <td class="py-4 pr-4 font-mono font-bold text-dark">STK-SLM-5521</td>
+                                    <td class="py-4 pr-4 font-semibold text-dark">Elena Rostova &bull; Premier Architecture</td>
+                                    <td class="py-4 pr-4 text-gray-500">Private Suite 402 Keypad</td>
+                                    <td class="py-4 pr-4 font-bold text-dark">4-Person Private Suite</td>
+                                    <td class="py-4 pr-4"><span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]">Biometric Pass</span></td>
+                                    <td class="py-4 text-right"><span class="px-2.5 py-1 rounded-full bg-surface text-gray-600 font-bold text-[10px]">Active</span></td>
+                                </tr>
+                                <tr class="hover:bg-stone-50 transition">
+                                    <td class="py-4 pr-4 font-mono font-bold text-dark">STK-SLM-4199</td>
+                                    <td class="py-4 pr-4 font-semibold text-dark">David Sterling &bull; Beacon Robotics</td>
+                                    <td class="py-4 pr-4 text-gray-500">Hardware R&amp;D Bay Door 3</td>
+                                    <td class="py-4 pr-4 font-bold text-dark">12-Desk Team Bay</td>
+                                    <td class="py-4 pr-4"><span class="px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 font-bold text-[10px]">High-Security Cleared</span></td>
+                                    <td class="py-4 text-right"><span class="px-2.5 py-1 rounded-full bg-surface text-gray-600 font-bold text-[10px]">Active</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
+
             </div>
 
             <!-- ========================================== -->
@@ -488,58 +671,118 @@
             <!-- ========================================== -->
             <div id="adm-kyc" class="adm-content hidden space-y-6">
                 <div class="bg-white p-5 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm space-y-6">
-                    <div class="flex justify-between items-center">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                         <div>
-                            <h2 class="text-lg font-bold text-dark">Pending Member Verification &amp; ID Queue</h2>
-                            <p class="text-xs text-gray-400">Review business registration, Aadhaar / Passport copies, and issue biometric passes.</p>
+                            <h2 class="text-base sm:text-lg font-bold text-dark">Pending Member Verification &amp; ID Queue</h2>
+                            <p class="text-xs text-gray-500">Review business registration, Aadhaar / Passport copies, and issue biometric passes.</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">28 Pending Approvals</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">14 Approved Today</span>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6">
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6">
                         <!-- KYC Item 1 -->
-                        <div class="p-5 rounded-2xl bg-surface border border-[#E7E2DA] space-y-4">
-                            <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
-                                <div class="flex items-center gap-3">
-                                    <img src="images/c2.webp" alt="Elena Rostova" class="w-12 h-12 rounded-xl object-cover ring-2 ring-blue-300 flex-shrink-0">
-                                    <div>
-                                        <h4 class="font-bold text-dark text-sm">Elena Rostova</h4>
-                                    <p class="text-xs text-gray-400">elena.rostova@premier.com &bull; Plan: Private Suite 4-Person</p>
+                        <div class="p-5 sm:p-6 rounded-2xl bg-surface border border-[#E7E2DA] space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex flex-col sm:flex-row justify-between items-start gap-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="images/c2.webp" alt="Elena Rostova" class="w-12 h-12 rounded-xl object-cover ring-2 ring-blue-300 flex-shrink-0">
+                                        <div>
+                                            <h4 class="font-bold text-dark text-sm sm:text-base">Elena Rostova</h4>
+                                            <p class="text-xs text-gray-500">elena.rostova@premier.com &bull; Plan: Private Suite 4-Person</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 font-bold text-[10px] self-start sm:self-auto">ID Uploaded</span>
                                 </div>
-                                <span class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 font-bold text-[10px]">ID Uploaded</span>
+                                <div class="text-xs text-gray-600 bg-white p-3.5 rounded-xl border border-[#E7E2DA] space-y-1.5">
+                                    <div><strong>Government ID:</strong> Pass-9842104 (International Passport)</div>
+                                    <div><strong>Business Field:</strong> Cloud Architecture Consulting</div>
+                                    <div><strong>Security Deposit:</strong> ₹75,000.00 Received (In Escrow)</div>
+                                </div>
                             </div>
-                            <div class="text-xs text-gray-600 bg-white p-3.5 rounded-xl border border-[#E7E2DA] space-y-1">
-                                <div><strong>Government ID:</strong> Pass-9842104 (International)</div>
-                                <div><strong>Business Field:</strong> Cloud Architecture Consulting</div>
-                                <div><strong>Security Deposit:</strong> ₹75,000.00 Received</div>
-                            </div>
-                            <div class="flex flex-wrap sm:flex-nowrap gap-2">
+                            <div class="flex flex-wrap sm:flex-nowrap gap-2 pt-2">
                                 <button onclick="window.showToast ? window.showToast('Workspace access for Elena Rostova APPROVED!', 'success') : null; this.closest('.p-5').remove();" class="flex-1 py-2.5 bg-dark text-white rounded-xl text-xs font-bold hover:bg-terracotta transition">Approve &amp; Issue Keycard</button>
                                 <button onclick="window.showToast ? window.showToast('Additional company documentation requested.', 'info') : null" class="px-4 py-2.5 border border-[#E7E2DA] rounded-xl text-xs font-bold text-gray-600 hover:border-dark transition">Request Info</button>
                             </div>
                         </div>
 
                         <!-- KYC Item 2 -->
-                        <div class="p-5 rounded-2xl bg-surface border border-[#E7E2DA] space-y-4">
-                            <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
-                                <div>
-                                <div class="flex items-center gap-3">
-                                    <img src="images/c3.webp" alt="David Sterling" class="w-12 h-12 rounded-xl object-cover ring-2 ring-emerald-300 flex-shrink-0">
-                                    <div>
-                                        <h4 class="font-bold text-dark text-sm">Beacon Robotics (David Sterling)</h4>
-                                    <p class="text-xs text-gray-400">contact@beaconrobotics.in &bull; Plan: 12-Desk Dedicated Team Bay</p>
+                        <div class="p-5 sm:p-6 rounded-2xl bg-surface border border-[#E7E2DA] space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex flex-col sm:flex-row justify-between items-start gap-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="images/c3.webp" alt="David Sterling" class="w-12 h-12 rounded-xl object-cover ring-2 ring-emerald-300 flex-shrink-0">
+                                        <div>
+                                            <h4 class="font-bold text-dark text-sm sm:text-base">Beacon Robotics (David Sterling)</h4>
+                                            <p class="text-xs text-gray-500">contact@beaconrobotics.in &bull; Plan: 12-Desk Team Bay</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-bold text-[10px] self-start sm:self-auto">CIN / GST Verified</span>
                                 </div>
-                                <span class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 font-bold text-[10px]">CIN / GST Verified</span>
+                                <div class="text-xs text-gray-600 bg-white p-3.5 rounded-xl border border-[#E7E2DA] space-y-1.5">
+                                    <div><strong>GST Number:</strong> 33AAACB1204K1Z8 (Tamil Nadu)</div>
+                                    <div><strong>Authorized Lead:</strong> David Sterling (Director)</div>
+                                    <div><strong>Tenure:</strong> 12 Months Guaranteed Agreement</div>
+                                </div>
                             </div>
-                            <div class="text-xs text-gray-600 bg-white p-3.5 rounded-xl border border-[#E7E2DA] space-y-1">
-                                <div><strong>GST Number:</strong> 33AAACB1204K1Z8 (Tamil Nadu)</div>
-                                <div><strong>Authorized Lead:</strong> David Sterling (Director)</div>
-                                <div><strong>Tenure:</strong> 12 Months Guaranteed Agreement</div>
-                            </div>
-                            <div class="flex flex-wrap sm:flex-nowrap gap-2">
+                            <div class="flex flex-wrap sm:flex-nowrap gap-2 pt-2">
                                 <button onclick="window.showToast ? window.showToast('Team Bay for Beacon Robotics APPROVED!', 'success') : null; this.closest('.p-5').remove();" class="flex-1 py-2.5 bg-dark text-white rounded-xl text-xs font-bold hover:bg-terracotta transition">Approve Team Bay</button>
                                 <button onclick="window.showToast ? window.showToast('Additional agreement review requested.', 'info') : null" class="px-4 py-2.5 border border-[#E7E2DA] rounded-xl text-xs font-bold text-gray-600 hover:border-dark transition">Review Terms</button>
                             </div>
                         </div>
+
+                        <!-- KYC Item 3 -->
+                        <div class="p-5 sm:p-6 rounded-2xl bg-surface border border-[#E7E2DA] space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex flex-col sm:flex-row justify-between items-start gap-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="images/c1.webp" alt="Dr. Arunkumar S." class="w-12 h-12 rounded-xl object-cover ring-2 ring-purple-300 flex-shrink-0">
+                                        <div>
+                                            <h4 class="font-bold text-dark text-sm sm:text-base">Dr. Arunkumar S. &bull; Salem Agritech</h4>
+                                            <p class="text-xs text-gray-500">arunkumar@salemagritech.in &bull; Plan: 6-Desk Hybrid Bay</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 font-bold text-[10px] self-start sm:self-auto">MSME Certified</span>
+                                </div>
+                                <div class="text-xs text-gray-600 bg-white p-3.5 rounded-xl border border-[#E7E2DA] space-y-1.5">
+                                    <div><strong>Entity Type:</strong> Agri-IoT DeepTech R&amp;D Startup</div>
+                                    <div><strong>MSME Reg:</strong> UDYAM-TN-24-0019284</div>
+                                    <div><strong>Requirement:</strong> High-bandwidth static IP &amp; 24/7 server bench</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap sm:flex-nowrap gap-2 pt-2">
+                                <button onclick="window.showToast ? window.showToast('Agritech Bay access approved with static IP!', 'success') : null; this.closest('.p-5').remove();" class="flex-1 py-2.5 bg-dark text-white rounded-xl text-xs font-bold hover:bg-terracotta transition">Approve &amp; Assign Bay</button>
+                                <button onclick="window.showToast ? window.showToast('Lab safety protocol requested.', 'info') : null" class="px-4 py-2.5 border border-[#E7E2DA] rounded-xl text-xs font-bold text-gray-600 hover:border-dark transition">Request Safety Info</button>
+                            </div>
+                        </div>
+
+                        <!-- KYC Item 4 -->
+                        <div class="p-5 sm:p-6 rounded-2xl bg-surface border border-[#E7E2DA] space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="flex flex-col sm:flex-row justify-between items-start gap-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="images/c2.webp" alt="Kavitha Ramasamy" class="w-12 h-12 rounded-xl object-cover ring-2 ring-amber-300 flex-shrink-0">
+                                        <div>
+                                            <h4 class="font-bold text-dark text-sm sm:text-base">Kavitha Ramasamy &bull; FinBridge</h4>
+                                            <p class="text-xs text-gray-500">kavitha@finbridge.co &bull; Plan: 2 Dedicated Resident Desks</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-bold text-[10px] self-start sm:self-auto">Aadhaar e-KYC Done</span>
+                                </div>
+                                <div class="text-xs text-gray-600 bg-white p-3.5 rounded-xl border border-[#E7E2DA] space-y-1.5">
+                                    <div><strong>Aadhaar Status:</strong> Verified with OTP e-Sign</div>
+                                    <div><strong>Occupation:</strong> Chartered Accountant &amp; Financial Compliance</div>
+                                    <div><strong>Desk Preference:</strong> Quiet Zone (Level 2 East Wing)</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap sm:flex-nowrap gap-2 pt-2">
+                                <button onclick="window.showToast ? window.showToast('Dedicated Desks for FinBridge APPROVED!', 'success') : null; this.closest('.p-5').remove();" class="flex-1 py-2.5 bg-dark text-white rounded-xl text-xs font-bold hover:bg-terracotta transition">Approve &amp; Issue Passes</button>
+                                <button onclick="window.showToast ? window.showToast('Seat allocation options sent to applicant.', 'info') : null" class="px-4 py-2.5 border border-[#E7E2DA] rounded-xl text-xs font-bold text-gray-600 hover:border-dark transition">Assign Seats</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -549,27 +792,100 @@
             <!-- ========================================== -->
             <div id="adm-loans" class="adm-content hidden space-y-6">
                 <div class="bg-white p-5 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm space-y-6">
-                    <div>
-                        <h2 class="text-lg font-bold text-dark">Private Suite &amp; Team Expansion Applications</h2>
-                        <p class="text-xs text-gray-400">Underwriting queue for long-term custom offices and 8-20 person suites.</p>
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div>
+                            <h2 class="text-base sm:text-lg font-bold text-dark">Private Suite &amp; Team Expansion Applications</h2>
+                            <p class="text-xs text-gray-500">Underwriting queue for custom institutional offices, team bays, and 8-20 person suites.</p>
+                        </div>
+                        <span class="text-xs font-bold text-dark bg-surface px-3 py-1.5 rounded-xl border border-[#E7E2DA]">4 Active Inquiries</span>
                     </div>
 
                     <div class="space-y-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 rounded-2xl bg-surface border border-[#E7E2DA] gap-4">
-                            <div class="space-y-1">
+                        <!-- Application 1 -->
+                        <div class="flex flex-col lg:flex-row lg:items-center justify-between p-5 sm:p-6 rounded-2xl bg-surface border border-[#E7E2DA] gap-4">
+                            <div class="space-y-1.5">
                                 <div class="flex items-center gap-2">
-                                    <h4 class="font-bold text-dark text-sm">Vanguard Logistics Corp</h4>
+                                    <h4 class="font-bold text-dark text-sm sm:text-base">Vanguard Logistics Corp</h4>
                                     <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Credit Rating: AAA</span>
                                 </div>
                                 <p class="text-xs text-gray-500">16-Person Private Executive Suite &bull; 24-Month Lease Agreement</p>
+                                <div class="text-[11px] text-gray-400">Escrow Security Deposit: ₹5,40,000.00 Verified via Bank Guarantee</div>
                             </div>
-                            <div class="text-left sm:text-right">
-                                <div class="text-lg font-black text-dark">₹1,80,000 / mo</div>
-                                <div class="text-xs text-gray-400">Security Deposit Verified (₹5.4L in Escrow)</div>
+                            <div class="text-left lg:text-right">
+                                <div class="text-lg sm:text-xl font-black text-dark">₹1,80,000 / mo</div>
+                                <div class="text-xs text-emerald-700 font-semibold">Includes 40 Meeting Credits / Mo</div>
                             </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.showToast ? window.showToast('Private suite allocated to Vanguard Logistics!', 'success') : null; this.closest('.p-5').remove();" class="px-4 py-2.5 bg-dark text-white hover:bg-terracotta rounded-xl text-xs font-bold transition">Accept &amp; Allocate</button>
-                                <button onclick="window.showToast ? window.showToast('Application declined.', 'error') : null; this.closest('.p-5').remove();" class="px-4 py-2.5 border border-[#E7E2DA] text-gray-600 hover:border-dark rounded-xl text-xs font-bold transition">Decline</button>
+                            <div class="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+                                <button onclick="window.showToast ? window.showToast('Private suite allocated to Vanguard Logistics!', 'success') : null; this.closest('.p-5').remove();" class="w-full sm:w-auto px-5 py-2.5 bg-dark text-white hover:bg-terracotta rounded-xl text-xs font-bold transition">Accept &amp; Allocate</button>
+                                <button onclick="window.showToast ? window.showToast('Application declined.', 'error') : null; this.closest('.p-5').remove();" class="w-full sm:w-auto px-4 py-2.5 border border-[#E7E2DA] text-gray-600 hover:border-dark rounded-xl text-xs font-bold transition">Decline</button>
+                            </div>
+                        </div>
+
+                        <!-- Application 2 -->
+                        <div class="flex flex-col lg:flex-row lg:items-center justify-between p-5 sm:p-6 rounded-2xl bg-surface border border-[#E7E2DA] gap-4">
+                            <div class="space-y-1.5">
+                                <div class="flex items-center gap-2">
+                                    <h4 class="font-bold text-dark text-sm sm:text-base">Solarium Green Energy Labs</h4>
+                                    <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Credit Rating: AA</span>
+                                </div>
+                                <p class="text-xs text-gray-500">8-Person Corner Tech Suite &bull; 12-Month Lease Agreement</p>
+                                <div class="text-[11px] text-gray-400">Requires 3-Phase Clean Power Bench &bull; Security Deposit: ₹2,85,000.00</div>
+                            </div>
+                            <div class="text-left lg:text-right">
+                                <div class="text-lg sm:text-xl font-black text-dark">₹95,000 / mo</div>
+                                <div class="text-xs text-emerald-700 font-semibold">Includes 20 Meeting Credits / Mo</div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+                                <button onclick="window.showToast ? window.showToast('Suite 302 assigned to Solarium Green Energy!', 'success') : null; this.closest('.p-5').remove();" class="w-full sm:w-auto px-5 py-2.5 bg-dark text-white hover:bg-terracotta rounded-xl text-xs font-bold transition">Accept &amp; Allocate</button>
+                                <button onclick="window.showToast ? window.showToast('Negotiation requested on power setup.', 'info') : null" class="w-full sm:w-auto px-4 py-2.5 border border-[#E7E2DA] text-gray-600 hover:border-dark rounded-xl text-xs font-bold transition">Custom Terms</button>
+                            </div>
+                        </div>
+
+                        <!-- Application 3 -->
+                        <div class="flex flex-col lg:flex-row lg:items-center justify-between p-5 sm:p-6 rounded-2xl bg-surface border border-[#E7E2DA] gap-4">
+                            <div class="space-y-1.5">
+                                <div class="flex items-center gap-2">
+                                    <h4 class="font-bold text-dark text-sm sm:text-base">CloudNine Design Studio</h4>
+                                    <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Credit Rating: A+</span>
+                                </div>
+                                <p class="text-xs text-gray-500">6-Person Creative Bay &bull; 18-Month Lease Agreement</p>
+                                <div class="text-[11px] text-gray-400">Acoustic Paneling &bull; 4K Dual Presentation Display requested</div>
+                            </div>
+                            <div class="text-left lg:text-right">
+                                <div class="text-lg sm:text-xl font-black text-dark">₹72,000 / mo</div>
+                                <div class="text-xs text-emerald-700 font-semibold">Includes 15 Meeting Credits / Mo</div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+                                <button onclick="window.showToast ? window.showToast('Creative Bay allocated to CloudNine Design!', 'success') : null; this.closest('.p-5').remove();" class="w-full sm:w-auto px-5 py-2.5 bg-dark text-white hover:bg-terracotta rounded-xl text-xs font-bold transition">Accept &amp; Allocate</button>
+                                <button onclick="window.showToast ? window.showToast('Application sent for space fitout cost estimate.', 'info') : null" class="w-full sm:w-auto px-4 py-2.5 border border-[#E7E2DA] text-gray-600 hover:border-dark rounded-xl text-xs font-bold transition">Fitout Review</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campus Floor Allocation Matrix -->
+                    <div class="pt-4 border-t border-gray-100">
+                        <h3 class="text-sm font-bold text-dark mb-3">Salem Fairlands Floor Space Utilization Summary</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                            <div class="p-4 rounded-xl bg-surface border border-[#E7E2DA]">
+                                <div class="font-bold text-dark">Level 1: Community &amp; Hot Desking</div>
+                                <div class="text-gray-500 mt-1">112 / 120 Seats Filled (93.3%)</div>
+                                <div class="w-full bg-gray-200 h-2 rounded-full mt-2 overflow-hidden">
+                                    <div class="bg-terracotta h-full rounded-full" style="width: 93%;"></div>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-surface border border-[#E7E2DA]">
+                                <div class="font-bold text-dark">Level 2: Dedicated Resident Desks</div>
+                                <div class="text-gray-500 mt-1">194 / 198 Desks Filled (98.0%)</div>
+                                <div class="w-full bg-gray-200 h-2 rounded-full mt-2 overflow-hidden">
+                                    <div class="bg-emerald-600 h-full rounded-full" style="width: 98%;"></div>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-surface border border-[#E7E2DA]">
+                                <div class="font-bold text-dark">Level 3: Private Team Suites</div>
+                                <div class="text-gray-500 mt-1">106 / 122 Desks Filled (86.8%)</div>
+                                <div class="w-full bg-gray-200 h-2 rounded-full mt-2 overflow-hidden">
+                                    <div class="bg-blue-600 h-full rounded-full" style="width: 87%;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -582,15 +898,16 @@
             <div id="adm-audit" class="adm-content hidden space-y-6">
                 <div class="bg-white p-5 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm space-y-6">
                     <div>
-                        <h2 class="text-lg font-bold text-dark">Campus Security Shield &amp; Turnstile Access Matrix</h2>
-                        <p class="text-xs text-gray-400">Real-time gate telemetry, biometric turnstile health, and high-speed Wi-Fi security.</p>
+                        <h2 class="text-base sm:text-lg font-bold text-dark">Campus Security Shield &amp; Turnstile Access Matrix</h2>
+                        <p class="text-xs text-gray-500">Real-time gate telemetry, biometric turnstile health, and high-speed Wi-Fi security.</p>
                     </div>
 
+                    <!-- 3 Security KPI Cards -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                         <div class="p-6 rounded-2xl bg-surface border border-[#E7E2DA] space-y-2">
                             <div class="text-xs font-bold text-gray-400 uppercase">Automated Turnstile Health</div>
                             <div class="text-2xl font-black text-emerald-600">99.8% Healthy</div>
-                            <p class="text-xs text-gray-500">Zero gate failure across 48,000 tap check-ins this month.</p>
+                            <p class="text-xs text-gray-500">Zero mechanical gate failure across 48,000 tap check-ins this month.</p>
                         </div>
                         <div class="p-6 rounded-2xl bg-surface border border-[#E7E2DA] space-y-2">
                             <div class="text-xs font-bold text-gray-400 uppercase">24/7 Access Biometrics</div>
@@ -600,7 +917,61 @@
                         <div class="p-6 rounded-2xl bg-surface border border-[#E7E2DA] space-y-2">
                             <div class="text-xs font-bold text-gray-400 uppercase">Fiber Network Failover</div>
                             <div class="text-2xl font-black text-terracotta">Dual Symmetrical Line</div>
-                            <p class="text-xs text-gray-500">Airtel + Tata redundant 1.0 Gbps fiber links active.</p>
+                            <p class="text-xs text-gray-500">Airtel + Tata redundant 1.0 Gbps fiber links active with 0.1s failover.</p>
+                        </div>
+                    </div>
+
+                    <!-- Gate Nodes Remote Controller Grid -->
+                    <div class="space-y-3 pt-2">
+                        <h3 class="text-sm font-bold text-dark">Physical Access Hardware Nodes Controller</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="p-4 rounded-xl border border-[#E7E2DA] bg-white space-y-2.5">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-dark text-xs">Node 01: Lobby Main</span>
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                </div>
+                                <div class="text-[11px] text-gray-500">Dual Optical Turnstiles &bull; 1,240 Taps</div>
+                                <div class="flex gap-2 pt-1">
+                                    <button onclick="window.showToast ? window.showToast('Node 01 pulse test PASSED.', 'success') : null" class="flex-1 py-1.5 bg-surface hover:bg-stone-200 text-dark font-bold text-[10px] rounded-lg transition">Test Pulse</button>
+                                    <button onclick="window.showToast ? window.showToast('Node 01 unlocked for 10s.', 'info') : null" class="flex-1 py-1.5 bg-dark hover:bg-terracotta text-white font-bold text-[10px] rounded-lg transition">Unlock (10s)</button>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl border border-[#E7E2DA] bg-white space-y-2.5">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-dark text-xs">Node 02: Parking Lift</span>
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                </div>
+                                <div class="text-[11px] text-gray-500">Basement RFID Reader &bull; 412 Taps</div>
+                                <div class="flex gap-2 pt-1">
+                                    <button onclick="window.showToast ? window.showToast('Node 02 pulse test PASSED.', 'success') : null" class="flex-1 py-1.5 bg-surface hover:bg-stone-200 text-dark font-bold text-[10px] rounded-lg transition">Test Pulse</button>
+                                    <button onclick="window.showToast ? window.showToast('Node 02 unlocked for 10s.', 'info') : null" class="flex-1 py-1.5 bg-dark hover:bg-terracotta text-white font-bold text-[10px] rounded-lg transition">Unlock (10s)</button>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl border border-[#E7E2DA] bg-white space-y-2.5">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-dark text-xs">Node 03: Executive Wing</span>
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                </div>
+                                <div class="text-[11px] text-gray-500">Magnetic Drop Bolt &bull; 188 Taps</div>
+                                <div class="flex gap-2 pt-1">
+                                    <button onclick="window.showToast ? window.showToast('Node 03 pulse test PASSED.', 'success') : null" class="flex-1 py-1.5 bg-surface hover:bg-stone-200 text-dark font-bold text-[10px] rounded-lg transition">Test Pulse</button>
+                                    <button onclick="window.showToast ? window.showToast('Node 03 unlocked for 10s.', 'info') : null" class="flex-1 py-1.5 bg-dark hover:bg-terracotta text-white font-bold text-[10px] rounded-lg transition">Unlock (10s)</button>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl border border-[#E7E2DA] bg-white space-y-2.5">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-dark text-xs">Node 04: Rooftop Garden</span>
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                </div>
+                                <div class="text-[11px] text-gray-500">Glass Door Auto-Latch &bull; 620 Taps</div>
+                                <div class="flex gap-2 pt-1">
+                                    <button onclick="window.showToast ? window.showToast('Node 04 pulse test PASSED.', 'success') : null" class="flex-1 py-1.5 bg-surface hover:bg-stone-200 text-dark font-bold text-[10px] rounded-lg transition">Test Pulse</button>
+                                    <button onclick="window.showToast ? window.showToast('Node 04 unlocked for 10s.', 'info') : null" class="flex-1 py-1.5 bg-dark hover:bg-terracotta text-white font-bold text-[10px] rounded-lg transition">Unlock (10s)</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -610,45 +981,98 @@
             <!-- TAB 5: CONSOLE SETTINGS WITH VALIDATION CONSTRAINTS -->
             <!-- ========================================== -->
             <div id="adm-settings" class="adm-content hidden space-y-6">
-                <div class="bg-white p-6 sm:p-10 rounded-3xl border border-[#E7E2DA] shadow-sm max-w-2xl mx-auto">
-                    <div class="mb-6">
-                        <div class="w-12 h-12 bg-terracotta/10 text-terracotta rounded-2xl flex items-center justify-center text-xl mb-3">
-                            <i class="fa-solid fa-gears"></i>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    
+                    <!-- Left Column: Settings Form -->
+                    <div class="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-[#E7E2DA] shadow-sm">
+                        <div class="mb-6">
+                            <div class="w-12 h-12 bg-terracotta/10 text-terracotta rounded-2xl flex items-center justify-center text-xl mb-3">
+                                <i class="fa-solid fa-gears"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-dark font-serif">Campus Console Settings</h2>
+                            <p class="text-gray-500 text-sm">Configure automated capacity thresholds, operations administration, and resident policy alerts.</p>
                         </div>
-                        <h2 class="text-2xl font-bold text-dark font-serif">Campus Console Settings</h2>
-                        <p class="text-gray-500 text-sm">Configure automated capacity thresholds and resident policy alerts.</p>
+
+                        <!-- Admin Settings Form (Preserves #adminSettingsForm, #adminName, #adminEmail, #wireThreshold, #fraudSensitivity) -->
+                        <form id="adminSettingsForm" class="space-y-4" novalidate>
+                            <div class="form-group">
+                                <label for="adminName" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">Hub Operations Admin Name</label>
+                                <input type="text" id="adminName" name="fullname" required value="Super Admin" class="w-full bg-white border border-[#E7E2DA] rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:border-terracotta transition">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="adminEmail" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">Operations Admin Email</label>
+                                <input type="email" id="adminEmail" name="email" required value="admin@testackly.com" class="w-full bg-white border border-[#E7E2DA] rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:border-terracotta transition">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="wireThreshold" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">Auto-Flag Credit Transfer Threshold (Hours / Credits)</label>
+                                <input type="number" id="wireThreshold" name="wireThreshold" required min="1000" max="1000000" value="50000" class="w-full bg-white border border-[#E7E2DA] rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:border-terracotta transition">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fraudSensitivity" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">Gate Security Sensitivity</label>
+                                <select id="fraudSensitivity" class="w-full bg-white border border-[#E7E2DA] rounded-xl px-4 py-3 text-sm text-dark font-medium focus:outline-none focus:border-terracotta transition">
+                                    <option value="high">High (Flag all visitor pass scans past 9:00 PM)</option>
+                                    <option value="medium" selected>Standard (Flag all unauthorized door attempts)</option>
+                                    <option value="strict">Strict Resident-Only Mode</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="w-full mt-4 bg-terracotta text-white hover:bg-terracotta-hover py-3.5 px-6 rounded-xl font-bold transition duration-300 shadow-md">
+                                Save Campus Policy
+                            </button>
+                        </form>
                     </div>
 
-                    <!-- Admin Settings Form (Preserves #adminSettingsForm, #adminName, #adminEmail, #wireThreshold, #fraudSensitivity) -->
-                    <form id="adminSettingsForm" class="space-y-4" novalidate>
-                        <div class="form-group">
-                            <label for="adminName" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">Hub Operations Admin Name</label>
-                            <input type="text" id="adminName" name="fullname" required value="Super Admin" class="w-full bg-white border border-[#E7E2DA] rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:border-terracotta transition">
+                    <!-- Right Column: Institutional Operational Standards -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-dark flex items-center gap-2">
+                                <i class="fa-solid fa-clock-rotate-left text-terracotta"></i> Hub Operating Hours &amp; Access
+                            </h3>
+                            <div class="space-y-3 text-xs text-gray-600">
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-semibold text-dark">Dedicated Desk Residents:</span>
+                                    <span class="text-emerald-700 font-bold">24/7 / 365 Days Access</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-semibold text-dark">Flex Hot Desk Members:</span>
+                                    <span>07:00 AM — 11:00 PM</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gray-100">
+                                    <span class="font-semibold text-dark">Front Desk &amp; Concierge:</span>
+                                    <span>08:30 AM — 08:30 PM</span>
+                                </div>
+                                <div class="flex justify-between py-2">
+                                    <span class="font-semibold text-dark">Artisan Cafeteria Pantry:</span>
+                                    <span>08:00 AM — 09:00 PM</span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="adminEmail" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">Operations Admin Email</label>
-                            <input type="email" id="adminEmail" name="email" required value="admin@testackly.com" class="w-full bg-white border border-[#E7E2DA] rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:border-terracotta transition">
+                        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-[#E7E2DA] shadow-sm space-y-4">
+                            <h3 class="text-base font-bold text-dark flex items-center gap-2">
+                                <i class="fa-solid fa-bell text-terracotta"></i> Operations Webhook Alerting
+                            </h3>
+                            <p class="text-xs text-gray-500">Automated SMS and WhatsApp dispatch to on-duty building manager for access anomalies.</p>
+                            <div class="space-y-2 text-xs">
+                                <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-[#E7E2DA] hover:bg-stone-50 cursor-pointer transition">
+                                    <input type="checkbox" checked class="text-terracotta rounded">
+                                    <span class="font-medium text-dark">SMS on unauthorized door force</span>
+                                </label>
+                                <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-[#E7E2DA] hover:bg-stone-50 cursor-pointer transition">
+                                    <input type="checkbox" checked class="text-terracotta rounded">
+                                    <span class="font-medium text-dark">WhatsApp notification on primary ISP failover</span>
+                                </label>
+                                <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-[#E7E2DA] hover:bg-stone-50 cursor-pointer transition">
+                                    <input type="checkbox" checked class="text-terracotta rounded">
+                                    <span class="font-medium text-dark">Daily summary report at 11:59 PM (PDF)</span>
+                                </label>
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="wireThreshold" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">Auto-Flag Credit Transfer Threshold ($ or Hours)</label>
-                            <input type="number" id="wireThreshold" name="wireThreshold" required min="1000" max="1000000" value="50000" class="w-full bg-white border border-[#E7E2DA] rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:border-terracotta transition">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="fraudSensitivity" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1.5">Gate Security Sensitivity</label>
-                            <select id="fraudSensitivity" class="w-full bg-white border border-[#E7E2DA] rounded-xl px-4 py-3 text-sm text-dark font-medium focus:outline-none focus:border-terracotta transition">
-                                <option value="high">High (Flag all visitor pass scans past 9:00 PM)</option>
-                                <option value="medium" selected>Standard (Flag all unauthorized door attempts)</option>
-                                <option value="strict">Strict Resident-Only Mode</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="w-full mt-4 bg-terracotta text-white hover:bg-terracotta-hover py-3.5 px-6 rounded-xl font-bold transition duration-300 shadow-md">
-                            Save Campus Policy
-                        </button>
-                    </form>
                 </div>
             </div>
 
@@ -659,9 +1083,9 @@
             <div class="max-w-[1600px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div>&copy; 2026 Stackly Operations Console — Salem Fairlands Hub. All rights reserved.</div>
                 <div class="flex items-center gap-4">
-                    <a href="404.html" class="hover:text-dark">Switch to Member Portal</a>
+                    <a href="user-dashboard.html" class="hover:text-dark">Switch to Member Portal</a>
                     <span>&bull;</span>
-                    <a href="404.html" class="hover:text-dark">Campus Facilities</a>
+                    <a href="services.html" class="hover:text-dark">Campus Facilities</a>
                 </div>
             </div>
         </footer>

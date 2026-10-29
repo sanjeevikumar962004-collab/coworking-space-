@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Portal — Stackly Coworking Space Salem</title>
-    <meta name="description" content="Manage your desk reservations, meeting room credits, smart RFID access passes, and billing at Stackly Coworking Space, Salem, Tamil Nadu.">
+    <title>Member Portal &amp; Smart Keycard — Stackly Coworking Space Salem</title>
+    <meta name="description" content="Manage your coworking membership, reserve meeting pods, view digital keycards, and track workspace usage at Stackly Salem Fairlands.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -60,9 +60,9 @@
             color: #ffffff !important;
         }
         .card-gradient {
-            background: linear-gradient(135deg, #19201E 0%, #2A3331 100%);
+            background: linear-gradient(135deg, #19201E 0%, #2A3633 50%, #19201E 100%);
         }
-        /* Custom scrollbar */
+        /* Custom scrollbars */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -71,20 +71,20 @@
             background: rgba(0, 0, 0, 0.04);
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(164, 76, 50, 0.3);
-            border-radius: 3px;
+            background: rgba(164, 76, 50, 0.25);
+            border-radius: 9999px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(164, 76, 50, 0.6);
+            background: rgba(164, 76, 50, 0.5);
         }
     </style>
 </head>
-<body class="bg-[#FAF8F5] text-dark font-sans min-h-screen antialiased flex flex-col selection:bg-terracotta selection:text-white">
+<body class="bg-[#FAF8F5] text-dark font-sans min-h-screen antialiased flex flex-col selection:bg-terracotta selection:text-white overflow-x-hidden">
 
     <!-- Mobile / Tablet Drawer Backdrop Overlay -->
     <div id="sidebarBackdrop" onclick="toggleMobileSidebar(false)" class="fixed inset-0 bg-dark/60 backdrop-blur-sm z-40 hidden lg:hidden opacity-0 transition-opacity duration-300"></div>
 
-    <!-- MEMBER SIDEBAR: Responsive Left Navigation (Fixed Desktop Slidebar & Slide-over Mobile/Tablet Drawer) -->
+    <!-- MEMBER SIDEBAR: Responsive Left Navigation -->
     <aside id="dashboardSidebar" class="fixed top-0 bottom-0 left-0 z-50 w-72 bg-dark text-white flex flex-col justify-between transition-all duration-300 ease-in-out -translate-x-full lg:translate-x-0 border-r border-white/10 shadow-2xl lg:shadow-none">
         
         <!-- Sidebar Top Area: Brand Logo & Navigation -->
@@ -92,7 +92,7 @@
             <!-- Brand Logo & Close Button (Mobile) -->
             <div class="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
                 <a href="index.html" class="flex items-center gap-3 group" title="Return to Stackly Home">
-                    <img src="images/stackly logo.webp" alt="Stackly" class="h-7 w-auto object-contain">
+                    <img src="images/stackly logo.webp" alt="Stackly" class="h-9 w-auto object-contain">
                 </a>
                 <!-- Mobile Close Toggle Button -->
                 <button onclick="toggleMobileSidebar(false)" class="lg:hidden w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white flex items-center justify-center transition" aria-label="Close sidebar navigation">
@@ -141,7 +141,7 @@
                     <div class="text-[11px] text-[#E7A896] truncate font-medium user-display-tier">Dedicated Desk Resident</div>
                     <div class="text-[10px] text-gray-400 truncate user-display-account">Pass #STK-7749-SLM</div>
                 </div>
-                <a href="login.html" class="w-8 h-8 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition" title="Sign out of Member Portal" aria-label="Sign out">
+                <a href="login.html" onclick="localStorage.removeItem('stackly_user')" class="w-8 h-8 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition" title="Sign out of Member Portal" aria-label="Sign out">
                     <i class="fa-solid fa-arrow-right-from-bracket text-xs"></i>
                 </a>
             </div>
@@ -152,164 +152,176 @@
     <div id="mainContentWrapper" class="flex-1 flex flex-col transition-all duration-300 ease-in-out lg:pl-72">
         
         <!-- Sticky Top Bar for Mobile, Tablet & Desktop Controls -->
-        <header class="sticky top-0 z-30 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E7E2DA] px-4 sm:px-8 py-3.5 flex items-center justify-between">
+        <header class="sticky top-0 z-30 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E7E2DA] px-3 sm:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
             
-            <div class="flex items-center gap-3 sm:gap-4">
+            <div class="flex items-center gap-2 sm:gap-4 min-w-0 flex-1">
                 <!-- Mobile Hamburger Button -->
-                <button onclick="toggleMobileSidebar(true)" class="lg:hidden w-10 h-10 rounded-xl bg-white border border-[#E7E2DA] text-dark hover:bg-stone-50 flex items-center justify-center transition shadow-sm" aria-label="Open mobile navigation menu">
+                <button onclick="toggleMobileSidebar(true)" class="lg:hidden p-2 rounded-xl bg-white border border-[#E7E2DA] text-dark hover:bg-stone-50 flex items-center justify-center transition shadow-sm flex-shrink-0" aria-label="Open mobile navigation menu">
                     <i class="fa-solid fa-bars text-sm"></i>
                 </button>
 
-                <!-- Mobile Logo -->
-                <a href="index.html" class="lg:hidden flex items-center" title="Return to Stackly Home">
-                    <img src="images/stackly logo.webp" alt="Stackly" class="h-6 w-auto object-contain filter brightness-0">
+                <!-- Mobile Brand Logo -->
+                <a href="index.html" class="lg:hidden flex items-center flex-shrink-0" title="Return to Stackly Home">
+                    <img src="images/stackly logo.webp" alt="Stackly" class="h-7 sm:h-9 w-auto object-contain filter brightness-0">
                 </a>
 
                 <!-- Desktop Sidebar Collapse Toggle Button -->
-                <button onclick="toggleDesktopSidebarCollapse()" id="desktopSidebarToggleBtn" class="hidden lg:flex w-9 h-9 rounded-xl bg-white border border-[#E7E2DA] text-gray-600 hover:text-dark hover:bg-stone-50 items-center justify-center transition shadow-sm" title="Toggle Sidebar Width">
+                <button onclick="toggleDesktopSidebarCollapse()" id="desktopSidebarToggleBtn" class="hidden lg:flex w-9 h-9 rounded-xl bg-white border border-[#E7E2DA] text-gray-600 hover:text-dark hover:bg-stone-50 items-center justify-center transition shadow-sm flex-shrink-0" title="Toggle Sidebar Width">
                     <i id="desktopSidebarToggleIcon" class="fa-solid fa-bars text-sm"></i>
                 </button>
 
-                <!-- Page Context Breadcrumb / Live Status -->
-                <div class="flex items-center gap-2">
+                <!-- Page Context Breadcrumb / Live Status (Desktop & Tablet) -->
+                <div class="hidden sm:flex items-center gap-2">
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#E8F5E9] text-[#2E7D32] border border-[#C8E6C9]">
                         <span class="w-2 h-2 rounded-full bg-[#2E7D32] animate-pulse"></span>
-                        <span>Salem Fairlands Hub • Open 24/7</span>
+                        <span>Salem Fairlands Hub &bull; Open 24/7</span>
                     </span>
-                    <span class="hidden sm:inline-block text-xs text-gray-400">• High-Speed Wi-Fi 1.0 Gbps</span>
+                    <span class="hidden md:inline-block text-xs text-gray-400">&bull; High-Speed Wi-Fi 1.0 Gbps</span>
                 </div>
             </div>
 
             <!-- Right: Quick Header Tools & User Profile Pill -->
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                 <!-- Global Search Simulated -->
-                <div class="relative hidden md:block">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
-                    <input type="text" placeholder="Search pods, members, Wi-Fi..." class="bg-white border border-[#E7E2DA] rounded-full pl-9 pr-4 py-1.5 text-xs focus:outline-none focus:border-terracotta transition w-48 lg:w-64 shadow-sm">
+                <div class="relative hidden lg:block">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                    <input type="text" placeholder="Search..." class="bg-white border border-[#E7E2DA] rounded-full pl-8 pr-3 py-1.5 text-xs focus:outline-none focus:border-terracotta transition w-36 xl:w-56 shadow-sm">
                 </div>
 
                 <!-- Notifications Button -->
                 <div class="relative">
-                    <button class="w-9 h-9 rounded-xl bg-white border border-[#E7E2DA] text-gray-600 hover:text-dark flex items-center justify-center transition relative shadow-sm" aria-label="View notifications">
-                        <i class="fa-regular fa-bell text-sm"></i>
+                    <button onclick="window.showToast ? window.showToast('You have 2 upcoming room reservations today.', 'info') : null" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white border border-[#E7E2DA] text-gray-600 hover:text-dark flex items-center justify-center transition relative shadow-sm" aria-label="View notifications">
+                        <i class="fa-regular fa-bell text-xs sm:text-sm"></i>
                         <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-terracotta rounded-full"></span>
                     </button>
                 </div>
 
-                <!-- Desktop User Profile Pill -->
-                <div class="flex items-center gap-2.5 bg-white border border-[#E7E2DA] rounded-full py-1 px-3 shadow-sm">
+                <!-- User Profile Pill -->
+                <div class="flex items-center gap-2 bg-white border border-[#E7E2DA] rounded-full py-1 px-2 sm:px-3 shadow-sm">
                     <img src="images/p2.webp" alt="Alex Morgan" class="w-7 h-7 rounded-full object-cover ring-2 ring-terracotta/40 flex-shrink-0">
                     <span class="text-xs font-bold hidden sm:inline-block user-display-name">Alex Morgan</span>
-                    <span class="text-[10px] bg-terracotta/10 text-terracotta px-2 py-0.5 rounded-full font-bold user-display-tier">Resident</span>
+                    <span class="text-[10px] bg-terracotta/10 text-terracotta px-2 py-0.5 rounded-full font-bold user-display-tier hidden sm:inline-block">Resident</span>
                 </div>
             </div>
         </header>
 
         <!-- Main Dashboard View Container -->
-        <main class="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-8">
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-6 sm:space-y-8">
             
             <!-- Welcome Banner & Quick Action Buttons -->
-            <div class="bg-dark text-white rounded-3xl p-6 sm:p-8 relative overflow-hidden shadow-xl border border-white/10">
+            <div class="bg-dark text-white rounded-3xl p-5 sm:p-8 relative overflow-hidden shadow-xl border border-white/10">
                 <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-terracotta/20 rounded-full blur-3xl pointer-events-none"></div>
                 
-                <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                    <div class="space-y-2">
-                        <div class="text-xs uppercase tracking-widest text-[#E7A896] font-bold">Salem Campus Resident Hub</div>
-                        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-tight text-white">
+                <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6">
+                    <div class="space-y-1.5 sm:space-y-2">
+                        <div class="text-[11px] sm:text-xs uppercase tracking-widest text-[#E7A896] font-bold">Salem Campus Resident Hub</div>
+                        <h1 class="text-xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-tight text-white">
                             Welcome back, <span class="user-display-name text-[#FAF0EB]">Alex Morgan</span>!
                         </h1>
-                        <p class="text-sm text-gray-300 max-w-xl">
+                        <p class="text-xs sm:text-sm text-gray-300 max-w-xl">
                             Your active workspace pass at Stackly Salem Fairlands is in good standing. You have <strong class="text-white">18.5 room credits</strong> remaining for this billing cycle.
                         </p>
                     </div>
 
                     <!-- Quick Action Triggers -->
-                    <div class="flex flex-wrap items-center gap-3">
-                        <button onclick="openTransferModal()" class="bg-terracotta hover:bg-terracotta-hover text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-md flex items-center gap-2 group">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full md:w-auto">
+                        <button onclick="openTransferModal()" class="bg-terracotta hover:bg-terracotta-hover text-white px-5 py-2.5 sm:py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-md flex items-center justify-center gap-2 group">
                             <i class="fa-solid fa-calendar-plus group-hover:scale-110 transition"></i>
-                            <span>Reserve Pod / Transfer Credits</span>
+                            <span>Reserve Pod / Transfer</span>
                         </button>
-                        <button onclick="switchTab('cards')" class="bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition border border-white/15 flex items-center gap-2">
+                        <button onclick="switchTab('cards')" class="bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 sm:py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition border border-white/15 flex items-center justify-center gap-2">
                             <i class="fa-solid fa-id-badge"></i>
-                            <span>View Digital RFID Pass</span>
+                            <span>Digital RFID Pass</span>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Mobile & Tablet Secondary Tab Bar (Allows fast tab switching right on the page if preferred) -->
-            <div class="lg:hidden flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-                <button onclick="switchTab('overview')" id="mobile-tab-overview" class="mobile-tab-btn active-tab px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition bg-dark text-white">
-                    Overview
+            <!-- Mobile & Tablet Secondary Tab Bar -->
+            <div class="lg:hidden flex items-center gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none">
+                <button onclick="switchTab('overview')" id="mobile-tab-overview" class="mobile-tab-btn active-tab px-3.5 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-1.5 bg-dark text-white">
+                    <i class="fa-solid fa-chart-pie"></i> Overview
                 </button>
-                <button onclick="switchTab('transfers')" id="mobile-tab-transfers" class="mobile-tab-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition bg-white text-gray-600 border border-[#E7E2DA]">
-                    Bookings &amp; Credits
+                <button onclick="switchTab('transfers')" id="mobile-tab-transfers" class="mobile-tab-btn px-3.5 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-1.5 text-gray-600 bg-white border border-[#E7E2DA]">
+                    <i class="fa-solid fa-door-open"></i> Bookings &amp; Credits
                 </button>
-                <button onclick="switchTab('cards')" id="mobile-tab-cards" class="mobile-tab-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition bg-white text-gray-600 border border-[#E7E2DA]">
-                    Smart Keycards
+                <button onclick="switchTab('cards')" id="mobile-tab-cards" class="mobile-tab-btn px-3.5 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-1.5 text-gray-600 bg-white border border-[#E7E2DA]">
+                    <i class="fa-solid fa-id-card-clip"></i> Keycards
                 </button>
-                <button onclick="switchTab('settings')" id="mobile-tab-settings" class="mobile-tab-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition bg-white text-gray-600 border border-[#E7E2DA]">
-                    Member Settings
+                <button onclick="switchTab('settings')" id="mobile-tab-settings" class="mobile-tab-btn px-3.5 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition flex items-center gap-1.5 text-gray-600 bg-white border border-[#E7E2DA]">
+                    <i class="fa-solid fa-sliders"></i> Settings
                 </button>
             </div>
 
             <!-- ========================================== -->
-            <!-- TAB 1: OVERVIEW -->
+            <!-- TAB 1: OVERVIEW & USAGE METRICS -->
             <!-- ========================================== -->
-            <div id="tab-overview" class="tab-content space-y-8">
+            <div id="tab-overview" class="tab-content space-y-6 sm:space-y-8">
                 
                 <!-- Coworking Space Metric Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                     
                     <!-- Card 1: Active Workspace Tier -->
-                    <div class="bg-white rounded-3xl p-6 border border-[#E7E2DA] shadow-sm hover:shadow-md transition">
-                        <div class="flex items-center justify-between text-gray-500 mb-3">
-                            <span class="text-xs font-bold uppercase tracking-wider">Active Workspace Plan</span>
-                            <div class="w-8 h-8 rounded-full bg-terracotta/10 text-terracotta flex items-center justify-center text-xs font-bold">
-                                <i class="fa-solid fa-chair"></i>
+                    <div class="bg-white rounded-3xl p-6 border border-[#E7E2DA] shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-gray-500 mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider">Active Workspace Plan</span>
+                                <div class="w-9 h-9 rounded-2xl bg-terracotta/10 text-terracotta flex items-center justify-center text-xs font-bold">
+                                    <i class="fa-solid fa-chair"></i>
+                                </div>
                             </div>
+                            <div class="text-xl sm:text-2xl font-bold text-dark mb-1 user-display-tier">Dedicated Desk Resident</div>
                         </div>
-                        <div class="text-2xl font-bold text-dark mb-1 user-display-tier">Dedicated Desk Resident</div>
-                        <div class="text-xs text-emerald-700 flex items-center gap-1 font-bold">
+                        <div class="text-xs text-emerald-700 flex items-center gap-1 font-bold pt-3 mt-3 border-t border-gray-100">
                             <i class="fa-solid fa-circle-check"></i>
                             <span>24/7 Biometric Access Enabled</span>
                         </div>
                     </div>
 
                     <!-- Card 2: Meeting Room Credits -->
-                    <div class="bg-white rounded-3xl p-6 border border-[#E7E2DA] shadow-sm hover:shadow-md transition">
-                        <div class="flex items-center justify-between text-gray-500 mb-3">
-                            <span class="text-xs font-bold uppercase tracking-wider">Meeting Pod Credits</span>
-                            <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">
-                                <i class="fa-solid fa-clock"></i>
+                    <div class="bg-white rounded-3xl p-6 border border-[#E7E2DA] shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-gray-500 mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider">Meeting Pod Credits</span>
+                                <div class="w-9 h-9 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
                             </div>
+                            <div class="text-xl sm:text-2xl font-bold text-dark mb-1">18.5 hrs / 25 hrs</div>
                         </div>
-                        <div class="text-2xl font-bold text-dark mb-1">18.5 hrs / 25 hrs</div>
-                        <div class="text-xs text-gray-500">Renews Nov 1, 2026 &bull; Rollover active</div>
+                        <div class="text-xs text-gray-500 pt-3 mt-3 border-t border-gray-100">
+                            <span>Renews Nov 1 &bull; 6.5 hrs rollover</span>
+                        </div>
                     </div>
 
                     <!-- Card 3: Salem Hub Fiber Wi-Fi -->
-                    <div class="bg-white rounded-3xl p-6 border border-[#E7E2DA] shadow-sm hover:shadow-md transition">
-                        <div class="flex items-center justify-between text-gray-500 mb-3">
-                            <span class="text-xs font-bold uppercase tracking-wider">Salem Hub Network</span>
-                            <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">
-                                <i class="fa-solid fa-wifi"></i>
+                    <div class="bg-white rounded-3xl p-6 border border-[#E7E2DA] shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-gray-500 mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider">Salem Hub Network</span>
+                                <div class="w-9 h-9 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">
+                                    <i class="fa-solid fa-wifi"></i>
+                                </div>
                             </div>
+                            <div class="text-xl sm:text-2xl font-bold text-dark mb-1">1.0 Gbps Fiber</div>
                         </div>
-                        <div class="text-2xl font-bold text-dark mb-1">1.0 Gbps Fiber</div>
-                        <div class="text-xs text-gray-500">SSID: Stackly_Salem_Private</div>
+                        <div class="text-xs text-gray-500 pt-3 mt-3 border-t border-gray-100">
+                            <span>SSID: Stackly_Salem_Private</span>
+                        </div>
                     </div>
 
                     <!-- Card 4: Community Days Logged -->
-                    <div class="bg-white rounded-3xl p-6 border border-[#E7E2DA] shadow-sm hover:shadow-md transition">
-                        <div class="flex items-center justify-between text-gray-500 mb-3">
-                            <span class="text-xs font-bold uppercase tracking-wider">Days Logged (Oct)</span>
-                            <div class="w-8 h-8 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center text-xs font-bold">
-                                <i class="fa-solid fa-calendar-check"></i>
+                    <div class="bg-white rounded-3xl p-6 border border-[#E7E2DA] shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-gray-500 mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider">Days Logged (Oct)</span>
+                                <div class="w-9 h-9 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xs font-bold">
+                                    <i class="fa-solid fa-calendar-check"></i>
+                                </div>
                             </div>
+                            <div class="text-xl sm:text-2xl font-bold text-dark mb-1">24 Days</div>
                         </div>
-                        <div class="text-2xl font-bold text-dark mb-1">24 Days</div>
-                        <div class="text-xs text-emerald-700 font-bold flex items-center gap-1">
+                        <div class="text-xs text-emerald-700 font-bold flex items-center gap-1 pt-3 mt-3 border-t border-gray-100">
                             <i class="fa-solid fa-arrow-trend-up"></i>
                             <span>98% Resident Attendance</span>
                         </div>
@@ -321,10 +333,10 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     
                     <!-- Chart 1: Desk Attendance & Meeting Hours Spline Chart (8 Cols) -->
-                    <div class="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-6">
+                    <div class="lg:col-span-8 bg-white rounded-3xl p-5 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-6">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div>
-                                <h3 class="text-lg font-bold text-dark">Workspace Utilization &amp; Pod Hours</h3>
+                                <h3 class="text-base sm:text-lg font-bold text-dark">Workspace Utilization &amp; Pod Hours</h3>
                                 <p class="text-xs text-gray-500">Monthly breakdown of desk hours tracked vs. meeting pod bookings</p>
                             </div>
                             
@@ -336,35 +348,35 @@
                         </div>
 
                         <!-- Chart Canvas Container -->
-                        <div class="relative h-64 sm:h-72 w-full">
+                        <div class="relative h-60 sm:h-72 w-full">
                             <canvas id="userCashFlowChart"></canvas>
                         </div>
 
                         <!-- Chart Summary Strip -->
                         <div class="pt-4 border-t border-gray-100 grid grid-cols-3 gap-2 text-center">
                             <div>
-                                <div class="text-[11px] font-bold text-gray-400 uppercase">Avg Desk Week</div>
+                                <div class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase">Avg Desk Week</div>
                                 <div class="text-sm sm:text-base font-bold text-dark mt-0.5">38.4 Hours</div>
                             </div>
                             <div>
-                                <div class="text-[11px] font-bold text-gray-400 uppercase">Peak Focus Slot</div>
+                                <div class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase">Peak Focus Slot</div>
                                 <div class="text-sm sm:text-base font-bold text-dark mt-0.5">10 AM — 2 PM</div>
                             </div>
                             <div>
-                                <div class="text-[11px] font-bold text-gray-400 uppercase">Pod Efficiency</div>
+                                <div class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase">Pod Efficiency</div>
                                 <div class="text-sm sm:text-base font-bold text-terracotta mt-0.5">94% Used</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Chart 2: Space Allocation Doughnut Chart (4 Cols) -->
-                    <div class="lg:col-span-4 bg-white rounded-3xl p-6 sm:p-8 border border-[#E7E2DA] shadow-sm flex flex-col justify-between">
+                    <div class="lg:col-span-4 bg-white rounded-3xl p-5 sm:p-8 border border-[#E7E2DA] shadow-sm flex flex-col justify-between">
                         <div>
-                            <h3 class="text-lg font-bold text-dark">Space Usage Breakdown</h3>
+                            <h3 class="text-base sm:text-lg font-bold text-dark">Space Usage Breakdown</h3>
                             <p class="text-xs text-gray-500 mb-6">Distribution across Salem Hub facilities</p>
                             
                             <!-- Doughnut Canvas with center metric -->
-                            <div class="relative h-48 w-full flex items-center justify-center">
+                            <div class="relative h-44 sm:h-48 w-full flex items-center justify-center">
                                 <canvas id="userAllocationChart"></canvas>
                                 <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                                     <span class="text-2xl font-black text-dark">164h</span>
@@ -416,14 +428,119 @@
 
                 </div>
 
+                <!-- Meaningful Widget 1: Upcoming Pod Reservations & Access PIN Codes -->
+                <div class="bg-white rounded-3xl p-5 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-5">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <h3 class="text-base sm:text-lg font-bold text-dark flex items-center gap-2">
+                                <i class="fa-regular fa-calendar-check text-terracotta"></i> Scheduled Room Reservations &amp; PINs
+                            </h3>
+                            <p class="text-xs text-gray-500">Upcoming booked sessions with instant smart keypad access codes.</p>
+                        </div>
+                        <button onclick="switchTab('transfers')" class="text-xs font-bold text-dark bg-surface hover:bg-stone-200 border border-[#E7E2DA] px-3.5 py-2 rounded-xl transition self-start sm:self-auto">
+                            + Book Another Room
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                        <!-- Upcoming Session 1 -->
+                        <div class="p-5 rounded-2xl bg-surface border border-[#E7E2DA] space-y-3 flex flex-col justify-between">
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <span class="text-[10px] uppercase font-bold text-terracotta tracking-wider">Starting in 45 min</span>
+                                        <h4 class="font-bold text-dark text-base">Kaveri 10-Seater Boardroom</h4>
+                                    </div>
+                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">Confirmed</span>
+                                </div>
+                                <p class="text-xs text-gray-600">Client Product Sprint with Design Team &bull; 2.5 Hours</p>
+                                <div class="flex flex-wrap gap-3 text-xs text-gray-500 bg-white p-3 rounded-xl border border-[#E7E2DA]">
+                                    <div><strong class="text-dark">Time:</strong> Today, 2:30 PM — 5:00 PM</div>
+                                    <div><strong class="text-dark">Door PIN:</strong> <span class="font-mono font-bold text-terracotta">8821#</span></div>
+                                    <div><strong class="text-dark">Display Cast:</strong> AirPlay / Miracast (PIN 4091)</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 pt-1">
+                                <button onclick="window.showToast ? window.showToast('Calendar invite sent to your email.', 'success') : null" class="flex-1 py-2 bg-dark hover:bg-terracotta text-white font-bold text-xs rounded-xl transition">
+                                    Add to Calendar
+                                </button>
+                                <button onclick="window.showToast ? window.showToast('Door PIN copied: 8821#', 'info') : null" class="px-4 py-2 bg-white hover:bg-stone-50 border border-[#E7E2DA] text-dark font-bold text-xs rounded-xl transition">
+                                    Copy PIN
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Session 2 -->
+                        <div class="p-5 rounded-2xl bg-surface border border-[#E7E2DA] space-y-3 flex flex-col justify-between">
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <span class="text-[10px] uppercase font-bold text-blue-600 tracking-wider">Tomorrow Morning</span>
+                                        <h4 class="font-bold text-dark text-base">Shevaroy Podcast Pod</h4>
+                                    </div>
+                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800">Scheduled</span>
+                                </div>
+                                <p class="text-xs text-gray-600">Audio Interview: Episode 14 Tech Founders Salem &bull; 1.5 Hours</p>
+                                <div class="flex flex-wrap gap-3 text-xs text-gray-500 bg-white p-3 rounded-xl border border-[#E7E2DA]">
+                                    <div><strong class="text-dark">Time:</strong> Tomorrow, 10:00 AM — 11:30 AM</div>
+                                    <div><strong class="text-dark">Door PIN:</strong> <span class="font-mono font-bold text-terracotta">5514#</span></div>
+                                    <div><strong class="text-dark">Equipment:</strong> Shure SM7B + Rodecaster Pro II</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 pt-1">
+                                <button onclick="window.showToast ? window.showToast('Calendar invite sent to your email.', 'success') : null" class="flex-1 py-2 bg-dark hover:bg-terracotta text-white font-bold text-xs rounded-xl transition">
+                                    Add to Calendar
+                                </button>
+                                <button onclick="window.showToast ? window.showToast('Door PIN copied: 5514#', 'info') : null" class="px-4 py-2 bg-white hover:bg-stone-50 border border-[#E7E2DA] text-dark font-bold text-xs rounded-xl transition">
+                                    Copy PIN
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meaningful Widget 2: Salem Campus Perks & Community Noticeboard -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <div class="p-5 sm:p-6 bg-white rounded-3xl border border-[#E7E2DA] shadow-sm space-y-3">
+                        <div class="w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold text-base">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <h4 class="font-bold text-dark text-sm sm:text-base">Artisan Coffee Bar Daily Special</h4>
+                        <p class="text-xs text-gray-500">Fresh single-origin Yercaud Peaberry roast now pouring at the Level 1 pantry bar. Complimentary for all resident members.</p>
+                        <div class="text-[11px] font-bold text-terracotta pt-1">Available 08:30 AM — 07:30 PM</div>
+                    </div>
+
+                    <div class="p-5 sm:p-6 bg-white rounded-3xl border border-[#E7E2DA] shadow-sm space-y-3">
+                        <div class="w-10 h-10 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center font-bold text-base">
+                            <i class="fa-solid fa-people-roof"></i>
+                        </div>
+                        <h4 class="font-bold text-dark text-sm sm:text-base">Stackly Founder Tech Mixer</h4>
+                        <p class="text-xs text-gray-500">This Thursday at 5:30 PM on the Rooftop Garden Lounge. Connect with AI, hardware, and design founders in Salem.</p>
+                        <button onclick="window.showToast ? window.showToast('You are RSVPed for the Tech Mixer!', 'success') : null" class="text-xs font-bold text-dark hover:text-terracotta transition pt-1 flex items-center gap-1">
+                            <span>RSVP Complimentary Pass</span> &rarr;
+                        </button>
+                    </div>
+
+                    <div class="p-5 sm:p-6 bg-white rounded-3xl border border-[#E7E2DA] shadow-sm space-y-3">
+                        <div class="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-base">
+                            <i class="fa-solid fa-qrcode"></i>
+                        </div>
+                        <h4 class="font-bold text-dark text-sm sm:text-base">Client Wi-Fi Pass Voucher</h4>
+                        <p class="text-xs text-gray-500">Hosting visitors today? Generate an instant 24-hour high-speed guest Wi-Fi code for your clients and team.</p>
+                        <button onclick="window.showToast ? window.showToast('Guest Wi-Fi Pass copied: StacklyGuest_9281', 'success') : null" class="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200 hover:bg-emerald-100 transition inline-block">
+                            <i class="fa-solid fa-copy mr-1"></i> Copy Guest Pass (24h)
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Split Section: Recent Activity / Bookings Table & Interactive Member Smart Keycard -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     
                     <!-- Left: Recent Activity & Space Reservations Table (8 Cols) -->
-                    <div class="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-6">
+                    <div class="lg:col-span-8 bg-white rounded-3xl p-5 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-6">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div>
-                                <h3 class="text-lg font-bold text-dark">Recent Hub Activity &amp; Bookings</h3>
+                                <h3 class="text-base sm:text-lg font-bold text-dark">Recent Hub Activity &amp; Bookings</h3>
                                 <p class="text-xs text-gray-500">Real-time gate check-ins, room reservations, and cafeteria tabs</p>
                             </div>
 
@@ -506,6 +623,40 @@
                                 </div>
                             </div>
 
+                            <!-- Item 5: Shevaroy Podcast Pod Booking -->
+                            <div class="tx-item outflow flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface hover:bg-stone-100 transition gap-3">
+                                <div class="flex items-center gap-3.5 min-w-0">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold flex-shrink-0">
+                                        <i class="fa-solid fa-microphone"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <div class="text-sm font-bold text-dark truncate">Shevaroy Podcast Pod</div>
+                                        <div class="text-xs text-gray-500 truncate">Episode 13 Recording &bull; Sep 25, 2026</div>
+                                    </div>
+                                </div>
+                                <div class="text-right flex-shrink-0">
+                                    <div class="text-sm font-bold text-dark">-1.5 hrs</div>
+                                    <span class="text-[10px] bg-stone-200 text-dark px-2 py-0.5 rounded-full font-bold uppercase">Completed</span>
+                                </div>
+                            </div>
+
+                            <!-- Item 6: Turnstile Badge Scan -->
+                            <div class="tx-item inflow flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface hover:bg-stone-100 transition gap-3">
+                                <div class="flex items-center gap-3.5 min-w-0">
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold flex-shrink-0">
+                                        <i class="fa-solid fa-fingerprint"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <div class="text-sm font-bold text-dark truncate">Gate Check-in Turnstile 1 (Lobby)</div>
+                                        <div class="text-xs text-gray-500 truncate">NFC Smart Pass Verified &bull; Today, 09:18 AM</div>
+                                    </div>
+                                </div>
+                                <div class="text-right flex-shrink-0">
+                                    <div class="text-xs font-bold text-emerald-700">Access Granted</div>
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold uppercase">Normal</span>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -518,7 +669,7 @@
                             
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-2">
-                                    <img src="images/stackly logo.webp" alt="Stackly" class="h-4 w-auto object-contain">
+                                    <img src="images/stackly logo.webp" alt="Stackly" class="h-5 w-auto object-contain">
                                     <span class="text-xs font-serif tracking-wider font-bold">STACKLY RESIDENT</span>
                                 </div>
                                 <div class="flex items-center gap-1.5 text-xs text-[#E7A896]">
@@ -589,9 +740,30 @@
             <!-- TAB 2: TRANSFERS & BOOKINGS -->
             <!-- ========================================== -->
             <div id="tab-transfers" class="tab-content hidden space-y-6">
-                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-6">
+                
+                <!-- Credit Pool Summary Strip -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="p-5 bg-white rounded-2xl border border-[#E7E2DA] shadow-sm">
+                        <div class="text-xs font-bold text-gray-400 uppercase">Available Room Credits</div>
+                        <div class="text-2xl font-black text-dark mt-1">18.5 Hours</div>
+                        <div class="text-xs text-emerald-700 font-semibold mt-1">100% Usable for Boardrooms &amp; Pods</div>
+                    </div>
+                    <div class="p-5 bg-white rounded-2xl border border-[#E7E2DA] shadow-sm">
+                        <div class="text-xs font-bold text-gray-400 uppercase">Monthly Allowance Quota</div>
+                        <div class="text-2xl font-black text-dark mt-1">25.0 Hours</div>
+                        <div class="text-xs text-gray-500 mt-1">Dedicated Desk Resident Tier Plan</div>
+                    </div>
+                    <div class="p-5 bg-white rounded-2xl border border-[#E7E2DA] shadow-sm">
+                        <div class="text-xs font-bold text-gray-400 uppercase">Next Allowance Cycle</div>
+                        <div class="text-2xl font-black text-terracotta mt-1">Nov 01, 2026</div>
+                        <div class="text-xs text-gray-500 mt-1">Auto-rollover up to 10 hours</div>
+                    </div>
+                </div>
+
+                <!-- Main Booking Form Card -->
+                <div class="bg-white rounded-3xl p-5 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-6">
                     <div>
-                        <h2 class="text-xl font-bold text-dark">Reserve Workspace Pods &amp; Transfer Credits</h2>
+                        <h2 class="text-lg sm:text-xl font-bold text-dark">Reserve Workspace Pods &amp; Transfer Credits</h2>
                         <p class="text-xs text-gray-500">Allocate meeting hours to team members or reserve private Salem boardrooms instantly.</p>
                     </div>
 
@@ -602,7 +774,7 @@
                                 <label for="fromAccount" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">From Balance / Plan</label>
                                 <select id="fromAccount" class="w-full bg-white border border-[#E7E2DA] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-terracotta transition">
                                     <option>Dedicated Desk Credit Pool (18.5 hrs remaining)</option>
-                                    <option>Corporate Team Wallet ($1,250.00)</option>
+                                    <option>Corporate Team Wallet (₹12,500.00)</option>
                                 </select>
                             </div>
 
@@ -664,9 +836,9 @@
             <!-- TAB 3: CARDS & ACCESS PASSES -->
             <!-- ========================================== -->
             <div id="tab-cards" class="tab-content hidden space-y-6">
-                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-6">
+                <div class="bg-white rounded-3xl p-5 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-6">
                     <div>
-                        <h2 class="text-xl font-bold text-dark">Smart RFID Keycards &amp; Door Permissions</h2>
+                        <h2 class="text-lg sm:text-xl font-bold text-dark">Smart RFID Keycards &amp; Door Permissions</h2>
                         <p class="text-xs text-gray-500">Configure contactless gate access, turnstile permissions, and digital smartphone key passes for Salem Fairlands Campus.</p>
                     </div>
 
@@ -680,8 +852,8 @@
                             <div class="font-mono text-lg font-bold text-dark">STK-SLM-8821-RFID</div>
                             <p class="text-xs text-gray-500">Physical contactless card paired with your resident desk. Tap turnstile to enter 24/7.</p>
                             <div class="pt-2 flex gap-3">
-                                <button onclick="showToast('Physical card access active & verified', 'success')" class="text-xs font-bold bg-white px-3 py-2 rounded-xl border border-[#E7E2DA] hover:bg-stone-50 transition">Ping Gate</button>
-                                <button onclick="showToast('Card temporarily locked', 'info')" class="text-xs font-bold text-red-600 bg-white px-3 py-2 rounded-xl border border-[#E7E2DA] hover:bg-red-50 transition">Lock Card</button>
+                                <button onclick="window.showToast ? window.showToast('Physical card access active & verified', 'success') : null" class="text-xs font-bold bg-white px-3.5 py-2 rounded-xl border border-[#E7E2DA] hover:bg-stone-50 transition">Ping Gate</button>
+                                <button onclick="window.showToast ? window.showToast('Card temporarily locked', 'info') : null" class="text-xs font-bold text-red-600 bg-white px-3.5 py-2 rounded-xl border border-[#E7E2DA] hover:bg-red-50 transition">Lock Card</button>
                             </div>
                         </div>
 
@@ -694,7 +866,7 @@
                             <div class="font-mono text-lg font-bold text-dark">NFC-MOBILE-PASS</div>
                             <p class="text-xs text-gray-500">Add Stackly digital badge to Apple Wallet or Google Pay for touchless iPhone / Android entry.</p>
                             <div class="pt-2 flex gap-3">
-                                <button onclick="showToast('Digital pass sent to registered phone number', 'success')" class="text-xs font-bold bg-dark text-white px-4 py-2 rounded-xl hover:bg-terracotta transition">Add to Phone Wallet</button>
+                                <button onclick="window.showToast ? window.showToast('Digital pass sent to registered phone number', 'success') : null" class="text-xs font-bold bg-dark text-white px-4 py-2 rounded-xl hover:bg-terracotta transition">Add to Phone Wallet</button>
                             </div>
                         </div>
                     </div>
@@ -733,6 +905,34 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Recent Gate Entries Log for Member -->
+                    <div class="border-t border-gray-100 pt-6 space-y-3">
+                        <h3 class="text-sm font-bold text-dark">Your Recent Door &amp; Turnstile Taps</h3>
+                        <div class="space-y-2 text-xs">
+                            <div class="p-3 rounded-xl bg-surface flex justify-between items-center">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-door-open text-emerald-600"></i>
+                                    <span>Main Reception Optical Turnstile 1</span>
+                                </div>
+                                <span class="text-gray-500">Today, 09:18 AM</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-surface flex justify-between items-center">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-door-open text-emerald-600"></i>
+                                    <span>Level 2 Dedicated Resident Wing Latch</span>
+                                </div>
+                                <span class="text-gray-500">Today, 09:22 AM</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-surface flex justify-between items-center">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-door-open text-emerald-600"></i>
+                                    <span>Rooftop Artisan Terrace Garden Gate</span>
+                                </div>
+                                <span class="text-gray-500">Yesterday, 06:15 PM</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -740,18 +940,18 @@
             <!-- TAB 4: PROFILE & SETTINGS -->
             <!-- ========================================== -->
             <div id="tab-settings" class="tab-content hidden space-y-6">
-                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-6">
+                <div class="bg-white rounded-3xl p-5 sm:p-8 border border-[#E7E2DA] shadow-sm space-y-6">
                     <div>
-                        <h2 class="text-xl font-bold text-dark">Member Profile &amp; Preferences</h2>
+                        <h2 class="text-lg sm:text-xl font-bold text-dark">Member Profile &amp; Preferences</h2>
                         <p class="text-xs text-gray-500">Update your resident contact details, notification preferences, and workspace setup options.</p>
                     </div>
 
                     <!-- Resident Photo Portrait & ID Badge Card -->
-                    <div class="p-6 rounded-2xl bg-surface border border-[#E7E2DA] flex flex-col sm:flex-row items-center gap-6">
-                        <img src="images/p2.webp" alt="Alex Morgan" class="w-24 h-24 rounded-2xl object-cover ring-4 ring-terracotta/30 shadow-md flex-shrink-0">
+                    <div class="p-5 sm:p-6 rounded-2xl bg-surface border border-[#E7E2DA] flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
+                        <img src="images/p2.webp" alt="Alex Morgan" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover ring-4 ring-terracotta/30 shadow-md flex-shrink-0">
                         <div class="space-y-1 text-center sm:text-left flex-1">
                             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                                <h3 class="text-lg font-bold text-dark user-display-name">Alex Morgan</h3>
+                                <h3 class="text-base sm:text-lg font-bold text-dark user-display-name">Alex Morgan</h3>
                                 <span class="text-[10px] bg-terracotta text-white px-2 py-0.5 rounded-full font-bold uppercase user-display-tier">Dedicated Resident</span>
                             </div>
                             <p class="text-xs text-gray-500">Contactless Biometric RFID Profile: <strong class="text-dark user-display-account">STK-7749-SLM</strong></p>
@@ -761,6 +961,7 @@
                             <i class="fa-solid fa-camera mr-1"></i> Update Portrait
                         </button>
                     </div>
+
                     <!-- Profile Settings Form (Preserves #profileSettingsForm, #profileName, #profileEmail) -->
                     <form id="profileSettingsForm" class="space-y-6 max-w-2xl" novalidate>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -820,9 +1021,9 @@
         <footer class="mt-auto border-t border-[#E7E2DA] py-6 px-4 sm:px-8 text-center sm:flex sm:justify-between sm:items-center text-xs text-gray-500">
             <div>&copy; 2026 Stackly Coworking Space — Salem, Tamil Nadu. Thoughtfully Designed for Makers.</div>
             <div class="mt-2 sm:mt-0 flex justify-center gap-4">
-                <a href="404.html" class="hover:text-dark">About Hub</a>
-                <a href="404.html" class="hover:text-dark">Plans</a>
-                <a href="404.html" class="hover:text-dark">Fairlands Concierge</a>
+                <a href="about.html" class="hover:text-dark">About Hub</a>
+                <a href="services.html" class="hover:text-dark">Plans</a>
+                <a href="contact.html" class="hover:text-dark">Fairlands Concierge</a>
             </div>
         </footer>
 
@@ -843,7 +1044,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="quickTransferAmount" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Hours / Credits to Allocate ($ or Hours)</label>
+                    <label for="quickTransferAmount" class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">Hours / Credits to Allocate (Hours)</label>
                     <div class="relative">
                         <input type="number" id="quickTransferAmount" name="transferAmount" min="1" max="50000" required placeholder="2.5" class="w-full bg-white border border-[#E7E2DA] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-terracotta transition">
                     </div>
@@ -1049,22 +1250,21 @@
                                 fill: true,
                                 tension: 0.4,
                                 borderWidth: 3,
-                                pointBackgroundColor: '#19201E',
+                                pointBackgroundColor: '#FAF8F5',
                                 pointBorderColor: '#A44C32',
                                 pointBorderWidth: 2,
                                 pointRadius: 4,
                                 pointHoverRadius: 6
                             },
                             {
-                                label: 'Meeting Pod Hours',
+                                label: 'Meeting Pod Booking Hours',
                                 data: chartDatasets['6M'].outflow,
                                 borderColor: '#19201E',
                                 backgroundColor: darkGradient,
                                 fill: true,
                                 tension: 0.4,
                                 borderWidth: 2,
-                                borderDash: [4, 4],
-                                pointBackgroundColor: '#ffffff',
+                                pointBackgroundColor: '#FAF8F5',
                                 pointBorderColor: '#19201E',
                                 pointBorderWidth: 2,
                                 pointRadius: 3,
@@ -1085,22 +1285,21 @@
                                 position: 'top',
                                 align: 'end',
                                 labels: {
-                                    boxWidth: 12,
-                                    font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' },
-                                    color: '#4b5563',
+                                    boxWidth: 10,
                                     usePointStyle: true,
-                                    pointStyle: 'circle'
+                                    font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' },
+                                    color: '#4b5563'
                                 }
                             },
                             tooltip: {
                                 backgroundColor: '#19201E',
                                 titleFont: { family: 'Plus Jakarta Sans', size: 12, weight: 'bold' },
-                                bodyFont: { family: 'Plus Jakarta Sans', size: 12 },
+                                bodyFont: { family: 'Plus Jakarta Sans', size: 11 },
                                 padding: 12,
-                                cornerRadius: 10,
+                                cornerRadius: 8,
                                 callbacks: {
-                                    label: function (context) {
-                                        return `${context.dataset.label}: ${context.raw} hrs`;
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.raw}h`;
                                     }
                                 }
                             }
@@ -1123,25 +1322,25 @@
                 });
             }
 
-            // 2. Space Usage Allocation Doughnut Chart
+            // 2. Hub Facility Usage Breakdown Doughnut Chart
             const allocCtx = document.getElementById('userAllocationChart');
             if (allocCtx) {
                 userAllocationChartInstance = new Chart(allocCtx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Dedicated Desk', 'Kaveri Boardroom', 'Shevaroy Podcast Pod', 'Terrace Focus Lounge'],
+                        labels: ['Dedicated Ergonomic Desk', 'Kaveri Boardroom', 'Shevaroy Podcast Pod', 'Terrace Focus Lounge'],
                         datasets: [{
-                            data: [82, 41, 25, 16],
-                            backgroundColor: ['#A44C32', '#19201E', '#2563eb', '#16a34a'],
+                            data: [50, 25, 15, 10],
+                            backgroundColor: ['#A44C32', '#19201E', '#2563eb', '#059669'],
                             borderWidth: 3,
                             borderColor: '#ffffff',
-                            hoverOffset: 6
+                            hoverOffset: 4
                         }]
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
-                        cutout: '74%',
+                        cutout: '72%',
                         plugins: {
                             legend: { display: false },
                             tooltip: {
@@ -1152,9 +1351,7 @@
                                 cornerRadius: 8,
                                 callbacks: {
                                     label: function(context) {
-                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                        const pct = Math.round((context.raw / total) * 100);
-                                        return ` ${context.raw} hrs (${pct}%)`;
+                                        return ` ${context.label}: ${context.raw}%`;
                                     }
                                 }
                             }
@@ -1164,33 +1361,33 @@
             }
         }
 
-        // Timeframe toggle for user chart
-        window.updateUserTimeframe = function(tf) {
-            if (!userCashFlowChartInstance || !chartDatasets[tf]) return;
-
-            // Toggle button visuals
-            document.querySelectorAll('.tf-btn').forEach(b => {
-                b.classList.remove('bg-dark', 'text-white');
-                b.classList.add('text-gray-500');
+        // Timeframe Selector for Cash Flow Chart
+        window.updateUserTimeframe = function(period) {
+            if (!userCashFlowChartInstance || !chartDatasets[period]) return;
+            
+            document.querySelectorAll('.tf-btn').forEach(btn => {
+                btn.classList.remove('bg-dark', 'text-white');
+                btn.classList.add('text-gray-500');
             });
-            const activeBtn = document.getElementById(`btn-tf-${tf.toLowerCase()}`);
+            const activeBtn = document.getElementById(period === '6M' ? 'btn-tf-6m' : 'btn-tf-1y');
             if (activeBtn) {
                 activeBtn.classList.add('bg-dark', 'text-white');
                 activeBtn.classList.remove('text-gray-500');
             }
 
-            userCashFlowChartInstance.data.labels = chartDatasets[tf].labels;
-            userCashFlowChartInstance.data.datasets[0].data = chartDatasets[tf].inflow;
-            userCashFlowChartInstance.data.datasets[1].data = chartDatasets[tf].outflow;
+            const data = chartDatasets[period];
+            userCashFlowChartInstance.data.labels = data.labels;
+            userCashFlowChartInstance.data.datasets[0].data = data.inflow;
+            userCashFlowChartInstance.data.datasets[1].data = data.outflow;
             userCashFlowChartInstance.update();
         };
 
-        // Initialize charts when DOM is ready
+        // Initialize User Charts on Load
         window.addEventListener('load', () => {
             initUserCharts();
         });
 
-        // Trigger chart resize when switching back to overview
+        // Trigger chart resize on user tab switch to overview
         const originalSwitchTab = window.switchTab;
         window.switchTab = function(tabId) {
             originalSwitchTab(tabId);
